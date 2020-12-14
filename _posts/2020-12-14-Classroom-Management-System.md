@@ -32,23 +32,24 @@ Only Admin, Prof, SAC,TAs, Committees can login
 
 ## Database Schema
 ![](https://github.com/mukeshpilaniya/cms/blob/pilaniya/src/main/webapp/images/cmsdb.png)
+![](https://guides.github.com/activities/hello-world/branching.png)
 
 ## Mysql ContainerSetup
-    pull the mysql docker image from docker hub
+   pull the mysql docker image from docker hub
 ```js
 docker pull mysql:5.7.29
 ```
 
-    create cms-mysql container
+   create cms-mysql container
 ```js
 docker run --name cms-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=cms_db -e MYSQL_USER=cms_user -e MYSQL_PASSWORD=cms_password -d mysql:5.7.29
 ```
 ## Springboot ContainerSetup
-    build cms-springboot docker image
+   build cms-springboot docker image
 ```js
 docker build -t cms-springboot .
 ```
-    create cms-springboot container from docker image
+   create cms-springboot container from docker image
 ```js
 docker run -t -p 8082:8082 --name cms-springboot --link cms-mysql:mysql -d cms-springboot
 ```
