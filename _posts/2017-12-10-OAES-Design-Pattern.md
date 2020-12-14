@@ -4,7 +4,7 @@ OAES Design Pattern Activity
 
 **Design Pattern:-** observer design pattern while sending question Paper to registered Students, ProtoType design pattern while creating a clone of question Paper.
 
-![](RackMultipart20201214-4-1thu7r8_html_800371f5f83eca8e.png)
+//![](RackMultipart20201214-4-1thu7r8_html_800371f5f83eca8e.png)
 
 Overview:-
 
