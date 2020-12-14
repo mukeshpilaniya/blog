@@ -31,7 +31,7 @@ Only Admin, Prof, SAC,TAs, Committees can login
     3. Interaction with prof. (In this case, the prof has to request for room.)
 
 ## Database Schema
-![](https://github.com/mukeshpilaniya/ClassroomManagementSystem/blob/master/src/main/webapp/images/cmsdb.png)
+![](https://raw.githubusercontent.com/mukeshpilaniya/ClassroomManagementSystem/master/src/main/webapp/images/cmsdb.png)
 ![](https://guides.github.com/activities/hello-world/branching.png)
 
 ## Mysql ContainerSetup
