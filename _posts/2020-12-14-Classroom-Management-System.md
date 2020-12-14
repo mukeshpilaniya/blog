@@ -31,7 +31,7 @@ Only Admin, Prof, SAC,TAs, Committees can login
     3. Interaction with prof. (In this case, the prof has to request for room.)
 
 ## Database Schema
-![Database_Schema](https://github.com/cms/src/main/webapp/images/cmsdb.png)
+![Database_Schema](https://github.com/mukeshpilaniya/cms/blob/pilaniya/src/main/webapp/images/cmsdb.png)
 
 ## Mysql ContainerSetup
 ### pull the mysql docker image from docker hub
