@@ -1,4 +1,3 @@
-
 ---
 title: Classroom Management System
 published: true
