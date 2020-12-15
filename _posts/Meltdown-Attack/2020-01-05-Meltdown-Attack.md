@@ -1,5 +1,5 @@
 <p align="center">
-    <h1>><b>International Institute of Information Technology(IIIT), Bangalore</b></h1>
+    <h1><b>International Institute of Information Technology(IIIT), Bangalore</b></h1>
 </p>
 <p align="center">
   <img src="https://www.iiitb.ac.in/includefiles/userfiles/images/iiitb_logo.png" width="150" height="120" >
