@@ -2,7 +2,7 @@
     <h1><b>International Institute of Information Technology(IIIT), Bangalore</b></h1>
 </p>
 <p align="center">
-  <img src="https://www.iiitb.ac.in/includefiles/userfiles/images/iiitb_logo.png" width="150" height="120" >
+  <img src="https://raw.githubusercontent.com/mukeshpilaniya/blog/gh-pages/_posts/Meltdown-Attack/images/images.002.png" width="150" height="120" >
 </p>
 <p>
   <p align="center">
@@ -26,12 +26,12 @@
 </p>
 
 ## Contents
- - Introduction
- - Background
-    - Cache Side Channel and Attacks
-       - FLUSH+RELOAD attack
-    - Out-Of-Order Execution
-    - Address Space Randomization
+ * Introduction
+ * Background
+    * Cache Side Channel and Attacks
+       * FLUSH+RELOAD attack
+    * Out-Of-Order Execution
+    * Address Space Randomization
  3. Meltdown and its Components
     3.1 Transient Instruction
     3.2 Attack Description
@@ -177,7 +177,7 @@ gcc-march=native -o myprogram myprogram.c
 
 Cache memory is nearest to CPU so, first CPU check data in cache, if data is present in cache than it will fetch directly from it and if data is not present than it will fetch from main memory. Fetching data from cache is much faster than fetching data from main memory.
 
-``` css
+```
 gcc -march=native -o CacheTime CacheTime.c
 ```
 In the Figure 4 at line number 19, first we have initialized an array of size 10*PAZESIZE.For finding PAGESIZE run the following command in terminal “getconf PAGESIZE” and put your own PAGESIZE in line 8. After that we flush the array address to make sure that array indexes are not cached and in the next phase, we are accessing index 4 and 7 as shown in line number 25 and 26 so that index 4 and 7 is cached by cache. From line number 29 to 35 we are accessing the array index and measuring the timing using rdtscp time stamp.
@@ -188,7 +188,7 @@ Figure 4: Program Illustrating the Timing Difference of Probing Array
 ```
 Figure 5 illustrate the timing difference where accessing the array index 3 and 7 is much faster than others.
 
-<p align="center"> <img src="https://raw.githubusercontent.com/mukeshpilaniya/blog/gh-pages/_posts/Meltdown-Attack/images/images.008.png""></p>
+<p align="center"> <img src="https://raw.githubusercontent.com/mukeshpilaniya/blog/gh-pages/_posts/Meltdown-Attack/images/images.008.png"></p>
 
 ```
 Figure 5: Access Timing of Probing Array
@@ -314,7 +314,7 @@ Address Space Layout Randomization) but it also prevents Meltdown.
 ## References
 
 [1] ZhengZmy(2019)Meltdown: Reading Kernel Memory from User Space
-  https://blog.csdn.net/zheng_zmy/article/details/
+  [https://blog.csdn.net/zheng_zmy/article/details/]https://blog.csdn.net/zheng_zmy/article/details/
 
 [2] Wenliang Du, Syracuse University(2018)Meltdown Attack Lab
   http://www.cis.syr.edu/~wedu/seed/Labs_16.04/System/Meltdown_Attack
