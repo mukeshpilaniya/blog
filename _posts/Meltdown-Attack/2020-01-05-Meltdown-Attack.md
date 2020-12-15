@@ -2,7 +2,7 @@
     <h1><b>International Institute of Information Technology(IIIT), Bangalore</b></h1>
 </p>
 <p align="center">
-  <img src="https://raw.githubusercontent.com/mukeshpilaniya/blog/gh-pages/_posts/Meltdown-Attack/images/images.002.png" width="150" height="120" >
+  <img src="https://www.iiitb.ac.in/includefiles/userfiles/images/iiitb_logo.png" width="200" height="150" >
 </p>
 <p>
   <p align="center">
@@ -26,16 +26,16 @@
 </p>
 
 ## Contents
- * Introduction
- * Background
-    * Cache Side Channel and Attacks
-       * FLUSH+RELOAD attack
-    * Out-Of-Order Execution
-    * Address Space Randomization
- 3. Meltdown and its Components
+1. Introduction
+2. Background
+    2.1 Cache Side Channel and Attacks
+        2.1.1 FLUSH+RELOAD attack
+    2.2 Out-Of-Order Execution
+    2.3 Address Space Randomization
+3. Meltdown and its Components
     3.1 Transient Instruction
     3.2 Attack Description
- 4. Evaluation
+4. Evaluation
     4.1 Environment Setting
     4.2 Code Compilation
     4.3 Reading from Cache versus Main Memory
@@ -44,8 +44,8 @@
     4.6 Exception Handling
     4.7 Out-of-Order Execution
     4.8 Meltdown Attack
- 5. Prevention of Meltdown Attack - KAISER Patch
- 6. Conclusion
+5. Prevention of Meltdown Attack - KAISER Patch
+6. Conclusion
 
 ### Abstract
 ```
@@ -314,7 +314,7 @@ Address Space Layout Randomization) but it also prevents Meltdown.
 ## References
 
 [1] ZhengZmy(2019)Meltdown: Reading Kernel Memory from User Space
-  [https://blog.csdn.net/zheng_zmy/article/details/]https://blog.csdn.net/zheng_zmy/article/details/
+  ![https://blog.csdn.net/zheng_zmy/article/details/]https://blog.csdn.net/zheng_zmy/article/details/
 
 [2] Wenliang Du, Syracuse University(2018)Meltdown Attack Lab
   http://www.cis.syr.edu/~wedu/seed/Labs_16.04/System/Meltdown_Attack
