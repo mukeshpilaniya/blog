@@ -26,12 +26,12 @@
 </p>
 
 ## Contents
- 1. Introduction
- 2. Background
-    2.1 Cache Side Channel and Attacks
-       2.1.1 FLUSH+RELOAD attack
-    2.2 Out-Of-Order Execution
-    2.3 Address Space Randomization
+ - Introduction
+ - Background
+    - Cache Side Channel and Attacks
+       - FLUSH+RELOAD attack
+    - Out-Of-Order Execution
+    - Address Space Randomization
  3. Meltdown and its Components
     3.1 Transient Instruction
     3.2 Attack Description
