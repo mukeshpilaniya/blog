@@ -1,16 +1,17 @@
 ﻿International Institute of Information
 
-Technology(IIIT), Bangalore![](images.001.png)
+Technology(IIIT), Bangalore![](images/images.001.png)
 
-![](images.002.png)
+![](images/images.002.png)
 
-Meltdown Attack![](images.003.png)
+Meltdown Attack![](images/images.003.png)
 
 Mentor Prof.Thangaraju B Professor,IIIT-Bangalore
 
 Mukesh Kumar Pilaniya Shreyansh Jain M.Tech 1st Year M.Tech 1st Year
 
-MT2019068 MT2019106
+MT2019068 MT2019106
+
 
 Contents
 
@@ -41,7 +42,8 @@ Contents
 1. [Out-of-Order Execution ](#_page16_x72.00_y150.91). . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
 1. [Meltdown Attack ](#_page16_x72.00_y551.27). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
 
-[5 Prevention of Meltdown Attack - KAISER Patch ](#_page17_x72.00_y595.11)15 [6 Conclusion](#_page18_x72.00_y291.66) 16
+[5 Prevention of Meltdown Attack - KAISER Patch ](#_page17_x72.00_y595.11)15 [6 Conclusion](#_page18_x72.00_y291.66) 16
+
 
 List of Figures
 
@@ -59,7 +61,8 @@ List of Figures
 1  [Out-of-Order Execution ](#_page16_x487.95_y393.29). . . . . . . . . . . . . . . . . . . . . . . . . . . . . 14
 1  [Reading Secret Value from Kernel .](#_page17_x451.95_y417.57) . . . . . . . . . . . . . . . . . . . . . . . 15
 1  [Output- Program Reading Secret Value from Kernel . .](#_page17_x523.95_y493.08) . . . . . . . . . . . . 15
-1  [KAISER PATCH ](#_page18_x523.95_y232.47). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+1  [KAISER PATCH ](#_page18_x523.95_y232.47). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 16
+
 
 Abstract
 
@@ -100,7 +103,7 @@ The next piece of background information required to understand the CPU cache to
 
 All the technique works this way: manipulate cache to known state, wait for victim activity and examine what has changed. Program virtual address map to physical address with the help of page table. L1 cache is nearest to the CPU and split between a data and an instruc- tion cache. If the data not found in L1 cache than load instruction passed to the next Cache hierarchy. This is the point where the page table come into play. Page table are used to
 
-![](images.004.png)
+![](images/images.004.png)
 
 Figure 1: Cache Architecture
 
@@ -176,7 +179,7 @@ In this section we describe each step that need to done for performing meltdown 
 
 For setting up our lab environment we are using 64-bit ubuntu 16.04 LTS in oracle virtual box 6.0, setting related to hardware device is specied in given 3.
 
-![](images.006.png)
+![](images/images.006.png)
 
 Figure 3: Environment Setting
 
@@ -194,13 +197,13 @@ gcc -march=native -o CacheTime CacheTime.c
 
 In the Figure [4 ](#_page10_x523.95_y639.84)at line number 19, rst we have initialized an array of size 10\*PAZESIZE. For nding PAGESIZE run the following command in terminal \getconf PAGESIZE" and put your own PAGESIZE in line 8. After that we ush the array address to make sure that array indexes are not cached and in the next phase, we are accessing index 4 and 7 as shown in line number 25 and 26 so that index 4 and 7 is cached by cache. From line number 29 to 35 we are accessing the array index and measuring the timing using rdtscp time stamp.
 
-![](images.007.png)
+![](images/images.007.png)
 
 Figure 4: Program Illustrating the Timing Dierence of Probing Array
 
 Figure [5 ](#_page11_x306.00_y329.36)illustrate the timing dierence where accessing the array index 3 and 7 is much faster than others.
 
-![](images.008.png)
+![](images/images.008.png)
 
 Figure 5: Access Timing of Probing Array
 
@@ -210,11 +213,11 @@ The objective of this section is extracting a secret value used by the victim fu
 
 As Shown in Figure [6 ](#_page12_x306.00_y576.02)at line 14, rst we set one-byte secretValue variable equal to 105.Since for a one-byte secret value there are 256 possibilities so in line 12 we declare array of size 256\*PAGESIZE. We multiply by PAGESIZE because caching is done at a block level, not at a byte level so, if one byte is cached by cpu than adjacent byte will also cached. Since the rst array[0\*PAGESIZE] may also cached by some cache block as a default behavior of cache. Therefore, to make sure array[0\*PAGESIZE] will not cached we are accessing ar- ray[i\*PAGESIZE+DELTA], where DELTA is a constant dene in line number 10.
 
-![](images.009.png)
+![](images/images.009.png)
 
 Figure 6: Program showing Cache is used as a Side Channel
 
-First Flush the entire array using ushSideChannel(); from the cache memory to make sure that array is not cached. After that we invoke the victim(); function, which access of the array element based on the value of secret, that array index value is cached by the cache memory. And the nal step is calling the reloadSideChannel(); function which reload the entire array and measure the time it takes to reload each element. So, if the array index is previously![](images.010.png) cached than it requires less CPU cycle. The output of the program illustrates in Figure [7.](#_page13_x306.00_y200.68)
+First Flush the entire array using ushSideChannel(); from the cache memory to make sure that array is not cached. After that we invoke the victim(); function, which access of the array element based on the value of secret, that array index value is cached by the cache memory. And the nal step is calling the reloadSideChannel(); function which reload the entire array and measure the time it takes to reload each element. So, if the array index is previously![](images/images.010.png) cached than it requires less CPU cycle. The output of the program illustrates in Figure [7.](#_page13_x306.00_y200.68)
 
 The output of the program shown in g 6[ b](#_page12_x306.00_y576.02)elow:
 
@@ -224,7 +227,7 @@ Figure 7: Reading of Secret Value from Cache
 
 For preparing meltdown attack we have to placed secret value in kernel space and we show that how a user-level program can access that data without going into kernel space. To store the Secret value in kernel space we are using kernel Module approach and the code is listed in [8.](#_page14_x306.00_y389.10)
 
-![](images.011.png)
+![](images/images.011.png)
 
 Figure 8: Program illustrating Meltdown Attack
 
@@ -234,9 +237,10 @@ For executing the meltdown attack rst, we need to know address of secret value s
 
 Install the kernel module
 
-sudo insmod MeltdownKernel.ko Print secret value address dmesg
+sudo insmod MeltdownKernel.ko Print secret value address dmesg
+
 PAGE16
-![](images.012.png)
+![](images/images.012.png)
 
 Figure 9: dmesg command
 
@@ -244,17 +248,18 @@ Figure 9: dmesg command
 
 When user program tries to access kernel memory in Figure 10[ at ](#_page15_x451.95_y528.16)line 23 than memory access violation is triggered and segmentation fault is generated. To avoid segmentation fault, we are using SIGSEGV signal because c does not provide try/catch techniques like java. So to implement try/catch in c we are using sigsetjmp() at line 21 and siglongjmp at line 10.
 
-![](images.013.png)
+![](images/images.013.png)
 
 Figure 10: Exception Handling
 
 The execution of this program is quite complex but let's understand it line by line. First,
 
-we register a SIGSEGV signal handler in line 19 which will invoke catch segv function (line 7). once's the signal handler complete processing it let the program to continue its execution so for that we have to dene a checkpoint that we are achieve by sigsetjmp(buer,1) at line 21. sigsetjmp save the stack context in buer that it latter used by siglongjmp (line 10). siglongjmp rollback the stack context in buer and return the second argument which is 1 so the program execution is start form else part (line 29), output is illustrate in 11.
+we register a SIGSEGV signal handler in line 19 which will invoke catch segv function (line 7). once's the signal handler complete processing it let the program to continue its execution so for that we have to dene a checkpoint that we are achieve by sigsetjmp(buer,1) at line 21. sigsetjmp save the stack context in buer that it latter used by siglongjmp (line 10). siglongjmp rollback the stack context in buer and return the second argument which is 1 so the program execution is start form else part (line 29), output is illustrate in 11.
+
 PAGE18
 
 
-![](images.014.png)
+![](images/images.014.png)
 
 Figure 11: Output of Exception Handling Program
 
@@ -262,7 +267,7 @@ Figure 11: Output of Exception Handling Program
 
 Meltdown is a race condition vulnerability, which involves racing between out-of-order exe- cution and access block so, for exploiting meltdown successfully we must have to win race condition. To win race condition we have to keep CPU execution busy somehow and for that we are using assembly level code.
 
-![](images.015.png)
+![](mages/images.015.png)
 
 Figure 12: Out-of-Order Execution
 
@@ -270,14 +275,15 @@ The code in Figure [12 ](#_page16_x487.95_y393.29)is simply a loop over 400 time
 
 8. Meltdown Attack
 
-To make attack more practical and improve eciency of attack we create a score array of size 256. The reason of creating an array of size 256 is that for one byte there is 256 possibilities. Therefore, one element for each possible secret value and we run attack multiple times as shown in Figure 13 at line 92. This step is combination of all step that are describe above, after running multiple times the highest value of score array is our answer. The output of this step is illustrated in Figure 14.
+To make attack more practical and improve eciency of attack we create a score array of size 256. The reason of creating an array of size 256 is that for one byte there is 256 possibilities. Therefore, one element for each possible secret value and we run attack multiple times as shown in Figure 13 at line 92. This step is combination of all step that are describe above, after running multiple times the highest value of score array is our answer. The output of this step is illustrated in Figure 14.
+
 PAGE20
 
-![](images.016.png)
+![](images/images.016.png)
 
 Figure 13: Reading Secret Value from Kernel
 
-![](images.017.png)
+![](images/images.017.png)
 
 Figure 14: Output- Program Reading Secret Value from KernelThe code in MeltdownAttack can only steals a one byte secret from the kernel.
 
@@ -287,7 +293,7 @@ The exploitation in the memory attacks usually requires correct knowledge of add
 
 To Prevent Meltdown KAISER technique can be used more accurately or we can say that it is a counter measure to Meltdown Attack. KAISER hide the kernel space from user space using randomization technique. KAISER allow the kernel to randomize the kernel location at boot time. The Output of same program after applying KAISER patch is illustrated in Figure 15.
 
-![](images.018.png)
+![](images/images.018.png)
 
 Figure 15: KAISER PATCH
 
