@@ -8,7 +8,7 @@
   <p align="center">
     <br>
     <br>
-    <b>Meltdown Attack</b>
+    <h2><b>Meltdown Attack</b><h2>
   </p>
   <br>
   <p align="center">
@@ -19,9 +19,9 @@
   </p>
   <br>
   <pre>
-    Mukesh Kumar Pilaniya                              Shreyansh Jain
-    M.Tech 1 st Year                   M.Tech 1 st Year
-    MT2019068                                          MT2019106
+                    Mukesh Kumar Pilaniya                                                                              Shreyansh Jain
+                    M.Tech 1 st Year                                                                                   M.Tech 1 st Year
+                    MT2019068                                                                                          MT2019106
   </pre>
 </p>
 
