@@ -1,5 +1,6 @@
+<!---
 <p align="center">
-    <b>International Institute of Information Technology(IIIT), Bangalore</b>
+    <h1>><b>International Institute of Information Technology(IIIT), Bangalore</b></h1>
 </p>
 <p align="center">
   <img src="https://www.iiitb.ac.in/includefiles/userfiles/images/iiitb_logo.png" width="150" height="120" >
@@ -24,7 +25,7 @@
     MT2019068                                          MT2019106
   </pre>
 </p>
-
+--->
 
 ## Contents
 - 1 Introduction
@@ -92,10 +93,13 @@ help of page table. L1 cache is nearest to the CPU and split between a data and 
 tion cache. If the data not found in L1 cache than load instruction passed to the next Cache
 hierarchy. This is the point where the page table come into play. Page table are used to
 
-<!-- <p align="center> <img src=""></p>-->
+<p align="center"> <img src="images/images.004.png"></p>
+ 
+<center>
 ```
 Figure 1: Cache Architecture
 ```
+</center>
 translate virtual address into a physical address, once’s we have physical address CPU can
 query into L2 cache and if data is not found in L2 cache then Load instruction is passed to
 L3 cache. L3 is inclusive shared cache between core0 and core1.(3)(9)
@@ -113,11 +117,12 @@ unavailability. A processor will execute the instruction order of availability o
 this, the CPU will avoid being idle or free while data is retrieved for the next instruction in advance for a program.(4)(9) Out-of-Order Execution can be regarded asA Room guarded by a Security Officer.The attacker wants to enter the room to get some secret value but the Security Guard have 2 options either it can allow the attacker to access the data depending on the permissions or
 it can deny the attacker to access the room’s data.(4)(9)
 
-<!-- <p align="center> <img src=""></p>-->
+<p align="center"> <img src="images/images.005.png"></p>
+<center>
 ```
 Figure 2: Out-Of-Order Execution
 ```
-
+</center>
 In figure 2 the line 3 causes an interrupt because user(attacker) wants to access the kerneldata, this line leads CPU to do two things
 1. The CPU raises an exception since user level program want to access kernel level data, this causes program or application to either crash if the program doesn’t have exception handling mechanism.
 2. Mean-while when CPU is busy in permission check the CPU doesn’t want the other com-putational parts to be idle since this may degrade the performance or efficiency so the CPU execute the adjacent instructions depending on the availability of data operands.
@@ -161,110 +166,121 @@ In this section we describe each step that need to done for performing meltdown 
 
 For setting up our lab environment we are using 64-bit ubuntu 16.04 LTS in oracle virtual box 6.0, setting related to hardware device is specified in given 3.
 
-<!-- <p align="center> <img src=""></p>-->
-
+<p align="center"> <img src="images/images.006.png"></p>
+<center>
 ```
 Figure 3: Environment Setting
 ```
+</center>
 ### 4.2 Code Compilation
 
 While compiling source code we have to add -march=native flag. while compiling the pro-gram -march=native flag tells the compiler to produce specific code for the local machine.
 For, example to compile a myprogram.c we are using the following command :
-
+<center>
 ```
 gcc-march=native -o myprogram myprogram.c
 ```
-
+</center>
 ### 4.3 Reading from Cache versus Main Memory
 
 Cache memory is nearest to CPU so, first CPU check data in cache, if data is present in cache than it will fetch directly from it and if data is not present than it will fetch from main memory. Fetching data from cache is much faster than fetching data from main memory.
 
-<!-- <p align="center> <img src=""></p>-->
-
+<center>
 ```
 gcc -march=native -o CacheTime CacheTime.c
 ```
+</center>
 In the Figure 4 at line number 19, first we have initialized an array of size 10*PAZESIZE.For finding PAGESIZE run the following command in terminal “getconf PAGESIZE” and put your own PAGESIZE in line 8. After that we flush the array address to make sure that array indexes are not cached and in the next phase, we are accessing index 4 and 7 as shown in line number 25 and 26 so that index 4 and 7 is cached by cache. From line number 29 to 35 we are accessing the array index and measuring the timing using rdtscp time stamp.
 
-<!-- <p align="center> <img src=""></p>-->
+<p align="center"> <img src="images/images.007.png""></p>
+<center>
 ```
 Figure 4: Program Illustrating the Timing Difference of Probing Array
 ```
-
+</center>
 Figure 5 illustrate the timing difference where accessing the array index 3 and 7 is much faster than others.
 
-<!-- <p align="center> <img src=""></p>-->
-
+<p align="center"> <img src="images/images.008.png""></p>-->
+<center>
 ```
 Figure 5: Access Timing of Probing Array
 ```
-
+</center>
 ### 4.4 Using Cache as Side-Channel
 
 The objective of this section is extracting a secret value used by the victim function. We are assuming that victim(); function at line 53 uses a secret value define in line 14, as index to load values from an array and the secret value cannot be accessed from the outside. Our objective is to use side channel to get this secret value. The technique that we are using for
 retrieving secret value is Flush(line 16)+Reload(line27) Functions.
 
 As Shown in Figure 6 at line 14, first we set one-byte secretValue variable equal to 105.Since for a one-byte secret value there are 256 possibilities so in line 12 we declare array of size 256*PAGESIZE. We multiply by PAGESIZE because caching is done at a block level, not at a byte level so, if one byte is cached by cpu than adjacent byte will also cached. Since the first array[0*PAGESIZE] may also cached by some cache block as a default behavior of cache. Therefore, to make sure array[0*PAGESIZE] will not cached we are accessing array[i*PAGESIZE+DELTA], where DELTA is a constant define in line number 10.
-<!-- <p align="center> <img src=""></p>-->
-
+<p align="center"> <img src="images/images.009.png""></p>
+<center>
 ```
 Figure 6: Program showing Cache is used as a Side Channel
 ```
+</center>
 First Flush the entire array using flushSideChannel(); from the cache memory to make sure that array is not cached. After that we invoke the victim(); function, which access of the array element based on the value of secret, that array index value is cached by the cache memory. And the final step is calling the reloadSideChannel(); function which reload the entire array and measure the time it takes to reload each element. So, if the array index is previously cached than it requires less CPU cycle. The output of the program illustrates in Figure 7.
 The output of the program shown in fig 6 below:
 
-<!-- <p align="center> <img src=""></p>-->
-
+<p align="center"> <img src="images/images.010.png""></p>
+<center>
 ```
 Figure 7: Reading of Secret Value from Cache
 ```
-
+</center>
 ### 4.5 Prepration for Meltdown Attack
 
 For preparing meltdown attack we have to placed secret value in kernel space and we show that how a user-level program can access that data without going into kernel space. To store the Secret value in kernel space we are using kernel Module approach and the code is listed in 8.
-<!-- <p align="center> <img src=""></p>-->
-
+<p align="center"> <img src="images/images.011.png""></p>
+<center>
 ```
 Figure 8: Program illustrating Meltdown Attack
 ```
+</center>
 For executing the meltdown attack first, we need to know address of secret value so, the kernel module saves the address of secret value in kernel buffer at line 41. which we will get it using ‘dmseg‘ command as shown in Figure 9. The next thing is this secret value need to be cached so to achieve this we are creating a file /proc/secretdata at line number 46. Which provide a link to communicate a user level program to kernel module. Therefore, when a user-level program read /proc/secretdata file then it will invoke readproc() function at line 23. The readproc() function will load the secret value (line 25) which is cached by CPU. readproc() function will not return secret value so it does not leak secret value.
-- Compile the kernel module
-<code>make</code>
-- Install the kernel module
-<code>sudo insmod MeltdownKernel.ko</code>
-- Print secret value address
-<code>dmesg</code>
+ 1. Compile the kernel module
+  ``make``
+ 2. Install the kernel module
+ ``sudo insmod MeltdownKernel.ko``
+3. Print secret value address
+ ``dmesg``
 
-<!-- <p align="center> <img src=""></p>-->
+<p align="center"> <img src="images/images.012.png""></p>
+<center>
 ```
 Figure 9: dmesg command
 ```
-
+</center>
 ### 4.6 Exception Handling
 
 When user program tries to access kernel memory in Figure 10 at line 23 than memory access violation is triggered and segmentation fault is generated. To avoid segmentation fault, we are using `SIGSEGV` signal because c does not provide try/catch techniques like java. So to implement try/catch in c we are using `sigsetjmp()` at line 21 and `siglongjmp` at line 10.
 
-<!-- <p align="center> <img src=""></p>-->
+<p align="center"> <img src="images/images.013.png""></p>
+<center>
 ```
 Figure 10: Exception Handling
 ```
+</center>
 The execution of this program is quite complex but let’s understand it line by line. First,we register a SIGSEGV signal handler in line 19 which will invoke catchsegv function (line7). once’s the signal handler complete processing it let the program to continue its execution so for that we have to define a checkpoint that we are achieve by sigsetjmp(buffer,1) at line 21. sigsetjmp save the stack context in buffer that it latter used by siglongjmp (line 10).
 siglongjmp rollback the stack context in buffer and return the second argument which is 1 so the program execution is start form else part (line 29), output is illustrate in 11.
 
-<!-- <p align="center> <img src=""></p>-->
+<p align="center"> <img src="images/images.014.png""></p>
+<center>
 ```
 Figure 11: Output of Exception Handling Program
 ```
+</center>
 ### 4.7 Out-of-Order Execution
 
 Meltdown is a race condition vulnerability, which involves racing between out-of-order exe-cution and access block so, for exploiting meltdown successfully we must have to win race
 condition. To win race condition we have to keep CPU execution busy somehow and for
 that we are using assembly level code.
 
-<!-- <p align="center> <img src=""></p>-->
+<p align="center"> <img src="images/images.015.png""></p>
+<center>
 ```
 Figure 12: Out-of-Order Execution
 ```
+</center>
 The code in Figure 12 is simply a loop over 400 times (line 63). In the next line it adds a
 number `0X141` (321 in decimal) to the eax register to keep rax register busy so that we can
 win race condition.
@@ -277,11 +293,11 @@ shown in Figure 13 at line 92. This step is combination of all step that are des
 after running multiple times the highest value of score array is our answer. The output of
 this step is illustrated in Figure 14.
 
-<!-- <p align="center> <img src=""></p>-->
+<p align="center"> <img src="images/images.016.png""></p>
 ```
 Figure 13: Reading Secret Value from Kernel
 ```
-<!-- <p align="center> <img src=""></p>-->
+<p align="center"> <img src="images/images.017.png"></p>
 ```
 Figure 14: Output- Program Reading Secret Value from Kernel
 ```
@@ -302,7 +318,7 @@ To Prevent Meltdown KAISER technique can be used more accurately or we can say t
 is a counter measure to Meltdown Attack. KAISER hide the kernel space from user space
 using randomization technique. KAISER allow the kernel to randomize the kernel location
 at boot time. The Output of same program after applying KAISER patch is illustrated in Figure 15.
-<!-- <p align="center> <img src=""></p>-->
+<p align="center"> <img src="images/images.018.png""></p>
 ```
 Figure 15: KAISER PATCH
 ```
@@ -321,31 +337,31 @@ Address Space Layout Randomization) but it also prevents Meltdown.
 ## References
 
 [1] ZhengZmy(2019)Meltdown: Reading Kernel Memory from User Space
-https://blog.csdn.net/zheng_zmy/article/details/
+  https://blog.csdn.net/zheng_zmy/article/details/
 
 [2] Wenliang Du, Syracuse University(2018)Meltdown Attack Lab
-http://www.cis.syr.edu/~wedu/seed/Labs_16.04/System/Meltdown_Attack
+  http://www.cis.syr.edu/~wedu/seed/Labs_16.04/System/Meltdown_Attack
 
 [3] Areej(2020) -Difference between l1 l2 and l3 cache memory
 
-[4] Moritz Lipp,Michael Schwarz,Daniel Gruss -Metldown paper -
-https://arxiv.org/pdf/1801.01207.pdf
+[4] Moritz Lipp,Michael Schwarz,Daniel Gruss -Metldown paper
+  https://arxiv.org/pdf/1801.01207.pdf
 
-[5] Jacek Galowicz -Metldown paper -
-https://blog.cyberus-technology.de/posts/2018-01-03-meltdown.html
+[5] Jacek Galowicz -Metldown paper
+  https://blog.cyberus-technology.de/posts/2018-01-03-meltdown.html
 
-[6] Jann Horn, Project Zero-Reading privileged memory with a side-channel - https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html
+[6] Jann Horn, Project Zero-Reading privileged memory with a side-channel
+  https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html
 
 [7] Jake Edge -Kernel Address Space Layout Randomization(KASLR)
-https://lwn.net/Articles/569635/
+  https://lwn.net/Articles/569635/
 
-[8] Daniel Gruss,Clementine Maurice, Klaus Wagner, and Stefan Mangard-
-Flush+Flush:A Fast and Stealthy Cache Attack -
-https://gruss.cc/files/flushflush.pdf
+[8] Daniel Gruss,Clementine Maurice, Klaus Wagner, and Stefan Mangard
+Flush+Flush:A Fast and Stealthy Cache Attack
+  https://gruss.cc/files/flushflush.pdf
 
 [9] Jann Horn, Project Zero -Reading privileged memory with a side-channel
-https://cryptome.org/2018/01/spectre-meltdown.pdf
+  https://cryptome.org/2018/01/spectre-meltdown.pdf
 
-[10] Yinqian Zhang -Cache Side Channels: State of the Art and Research Oppor-
-tunities
-http://web.cse.ohio-state.edu/~zhang.834/slides/tutorial17.pdf
+[10] Yinqian Zhang -Cache Side Channels: State of the Art and Research Oppor tunities
+  http://web.cse.ohio-state.edu/~zhang.834/slides/tutorial17.pdf
