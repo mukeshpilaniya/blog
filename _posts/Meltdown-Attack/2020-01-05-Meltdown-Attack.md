@@ -47,7 +47,7 @@
 5. Prevention of Meltdown Attack - KAISER Patch
 6. Conclusion
 
-### Abstract
+## Abstract
 ```
 Application security relies on the memory mapping in the system as well as isolation
 if memory unit and memory management unit is responsible for that like kernel address
@@ -321,24 +321,24 @@ Address Space Layout Randomization) but it also prevents Meltdown.
 
 [3] Areej(2020) -Difference between l1 l2 and l3 cache memory
 
-[4] Moritz Lipp,Michael Schwarz,Daniel Gruss -Metldown paper
+[4] Moritz Lipp,Michael Schwarz,Daniel Gruss Metldown paper
   [https://arxiv.org/pdf/1801.01207.pdf](https://arxiv.org/pdf/1801.01207.pdf)
 
-[5] Jacek Galowicz -Metldown paper
-  [](https://blog.cyberus-technology.de/posts/2018-01-03-meltdown.html)
+[5] Jacek Galowicz Metldown paper
+  [https://blog.cyberus-technology.de/posts/2018-01-03-meltdown.html](https://blog.cyberus-technology.de/posts/2018-01-03-meltdown.html)
 
-[6] Jann Horn, Project Zero-Reading privileged memory with a side-channel
-  [](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html)
+[6] Jann Horn, Project Zero Reading privileged memory with a side channel
+  [https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html)
 
-[7] Jake Edge -Kernel Address Space Layout Randomization(KASLR)
-  [](https://lwn.net/Articles/569635/)
+[7] Jake Edge Kernel Address Space Layout Randomization(KASLR)
+  [https://lwn.net/Articles/569635/](https://lwn.net/Articles/569635/)
 
 [8] Daniel Gruss,Clementine Maurice, Klaus Wagner, and Stefan Mangard
 Flush+Flush:A Fast and Stealthy Cache Attack
-  [](https://gruss.cc/files/flushflush.pdf)
+  [https://gruss.cc/files/flushflush.pdf](https://gruss.cc/files/flushflush.pdf)
 
-[9] Jann Horn, Project Zero -Reading privileged memory with a side-channel
-  [](https://cryptome.org/2018/01/spectre-meltdown.pdf)
+[9] Jann Horn, Project Zero Reading privileged memory with a side channel
+  [https://cryptome.org/2018/01/spectre-meltdown.pdf](https://cryptome.org/2018/01/spectre-meltdown.pdf)
 
-[10] Yinqian Zhang -Cache Side Channels: State of the Art and Research Oppor tunities
-  [](http://web.cse.ohio-state.edu/~zhang.834/slides/tutorial17.pdf)
+[10] Yinqian Zhang Cache Side Channels: State of the Art and Research Oppor tunities
+  [http://web.cse.ohio-state.edu/~zhang.834/slides/tutorial17.pdf](http://web.cse.ohio-state.edu/~zhang.834/slides/tutorial17.pdf)
