@@ -1,4 +1,3 @@
-<!---
 <p align="center">
     <h1>><b>International Institute of Information Technology(IIIT), Bangalore</b></h1>
 </p>
@@ -25,7 +24,6 @@
     MT2019068                                          MT2019106
   </pre>
 </p>
---->
 
 ## Contents
 - 1 Introduction
