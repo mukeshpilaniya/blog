@@ -317,28 +317,28 @@ Address Space Layout Randomization) but it also prevents Meltdown.
   [https://blog.csdn.net/zheng_zmy/article/details/](https://blog.csdn.net/zheng_zmy/article/details/)
 
 [2] Wenliang Du, Syracuse University(2018)Meltdown Attack Lab
-  http://www.cis.syr.edu/~wedu/seed/Labs_16.04/System/Meltdown_Attack
+  [http://www.cis.syr.edu/~wedu/seed/Labs_16.04/System/Meltdown_Attack](http://www.cis.syr.edu/~wedu/seed/Labs_16.04/System/Meltdown_Attack)
 
 [3] Areej(2020) -Difference between l1 l2 and l3 cache memory
 
 [4] Moritz Lipp,Michael Schwarz,Daniel Gruss -Metldown paper
-  https://arxiv.org/pdf/1801.01207.pdf
+  [https://arxiv.org/pdf/1801.01207.pdf](https://arxiv.org/pdf/1801.01207.pdf)
 
 [5] Jacek Galowicz -Metldown paper
-  https://blog.cyberus-technology.de/posts/2018-01-03-meltdown.html
+  [](https://blog.cyberus-technology.de/posts/2018-01-03-meltdown.html)
 
 [6] Jann Horn, Project Zero-Reading privileged memory with a side-channel
-  https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html
+  [](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html)
 
 [7] Jake Edge -Kernel Address Space Layout Randomization(KASLR)
-  https://lwn.net/Articles/569635/
+  [](https://lwn.net/Articles/569635/)
 
 [8] Daniel Gruss,Clementine Maurice, Klaus Wagner, and Stefan Mangard
 Flush+Flush:A Fast and Stealthy Cache Attack
-  https://gruss.cc/files/flushflush.pdf
+  [](https://gruss.cc/files/flushflush.pdf)
 
 [9] Jann Horn, Project Zero -Reading privileged memory with a side-channel
-  https://cryptome.org/2018/01/spectre-meltdown.pdf
+  [](https://cryptome.org/2018/01/spectre-meltdown.pdf)
 
 [10] Yinqian Zhang -Cache Side Channels: State of the Art and Research Oppor tunities
-  http://web.cse.ohio-state.edu/~zhang.834/slides/tutorial17.pdf
+  [](http://web.cse.ohio-state.edu/~zhang.834/slides/tutorial17.pdf)
