@@ -95,7 +95,6 @@ either you can build project using maven package or run `` java -jar flight-0.0.
 
 ##### tables in flight_db
 <pre>
-``` json
 +---------------------+
 | Tables_in_flight_db |
 +---------------------+
@@ -162,7 +161,6 @@ either you can build project using maven package or run `` java -jar flight-0.0.
 | destination   | varchar(255) | YES  |     | NULL    |                |
 | user_id       | bigint(20)   | YES  | MUL | NULL    |                |
 +---------------+--------------+------+-----+---------+----------------+
-``` 
 </pre>
 
 ##### RestAPI call endpoints
