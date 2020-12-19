@@ -3,8 +3,6 @@ layout: page
 title: About
 ---
 
-<object data="/assets/Mukesh_Resume.pdf" type="application/pdf" width="700px" height="700px">
-    <embed src="/assets/Mukesh_Resume.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="">Download PDF</a>.</p>
-    </embed>
-</object>
+<p>Please download the PDF to view it: <a href="https://raw.githubusercontent.com/mukeshpilaniya/blog/80ac9f4ce6007f89cf65000ed658985a5440ce2d/assets/Mukesh_Resume.pdf">Download PDF</a>.</p>
+
+![https://raw.githubusercontent.com/mukeshpilaniya/blog/gh-pages/assets/Mukesh_Resume.png](https://raw.githubusercontent.com/mukeshpilaniya/blog/gh-pages/assets/Mukesh_Resume.png)
