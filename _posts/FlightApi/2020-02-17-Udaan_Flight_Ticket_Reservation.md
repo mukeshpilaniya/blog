@@ -2,7 +2,7 @@ Github:- [https://github.com/mukeshpilaniya/FlightApi](https://github.com/mukesh
 
 ## Flight Ticket Reservation
 
-#### Description
+### Description
 Flight Ticket Reservation Duration: 90 minutes <br>
 Design and implement an application to reserve flights based on source, destination and date. The application should take care of the following aspects:
 
@@ -10,13 +10,13 @@ Design and implement an application to reserve flights based on source, destinat
     • Ability to search for flights based on source, destination anddate
     • Reserve 'n'numberof seats on a particular fight based on availability of seats.
 
-APIs:
+### APIs:
 
     1. Search for flights based on source, destination anddate
     2. Userbeingabletoreserve'n'numberofseatsonaparticularfight(thisAPI should keep availability of seats on that flight inmind)
     3. View reservations for a users (both past andupcoming)
 
-Expectation:
+### Expectation:
 
     • Clean professional levelCode
     • Modelling of core entities and relationships betweenthem.
@@ -25,7 +25,7 @@ Expectation:
     • User Identification but notauthentication
     • Backend Database is optional. However modelling should becomplete
 
-##### Project info
+#### Project info
 ``` 
 Server url- http://localhost:8080
 Database- Mysql
@@ -49,7 +49,7 @@ CREATE USER 'flight_user'@'localhost' IDENTIFIED BY 'flight_password';
 -- provide all the permission
 GRANT ALL PRIVILEGES ON flight_db. * TO 'flight_user'@'localhost';
 ~~~
-##### Dummy data for application
+#### Dummy data for application
 ~~~sql
 -- Dummy data for airport table
 INSERT INTO `flight_db`.`airport` (`airport_id`, `airport_city`, `airport_code`, `airport_name`) VALUES ('1', 'jaipur', 'JP', 'jaipur');
@@ -90,10 +90,10 @@ INSERT INTO `flight_db`.`ticket` (`ticket_id`, `date`, `flight_number`, `source`
 INSERT INTO `flight_db`.`ticket` (`ticket_id`, `date`, `flight_number`, `source`, `reserve_seat`, `destination`, `user_id`) VALUES ('6', '2020-11-02', '101', 'jaipur', '5', 'bangalore', '1');
 ~~~
 
-##### run application
+#### run application
 either you can build project using maven package or run `` java -jar flight-0.0.1-SNAPSHOT.jar ``
 
-##### tables in flight_db
+#### tables in flight_db
 ~~~sql
 +---------------------+
 | Tables_in_flight_db |
@@ -163,7 +163,7 @@ either you can build project using maven package or run `` java -jar flight-0.0.
 +---------------+--------------+------+-----+---------+----------------+
 ~~~
 
-##### RestAPI call endpoints
+### RestAPI call endpoints
 ```
 1. register user 
 Endpoint url:- http://localhost:8080/user/add
