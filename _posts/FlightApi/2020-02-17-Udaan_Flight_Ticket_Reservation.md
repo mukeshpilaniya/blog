@@ -25,7 +25,7 @@ Expectation:
     • Backend Database is optional. However modelling should becomplete
 
 ##### Project info
-``` json
+``` code
 Server url- http://localhost:8080
 Database- Mysql
 Java version- 1.8.0_242
@@ -35,7 +35,7 @@ Dependencies- spring web,spring data Jpa
 ```
 
 ##### run these commands to setup mysql database for application before running the application jar
-``` json
+``` mysql
 -- drop database if exits
 DROP DATABASE IF EXISTS flight_db;
 
