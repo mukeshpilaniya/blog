@@ -50,7 +50,7 @@ CREATE USER 'flight_user'@'localhost' IDENTIFIED BY 'flight_password';
 GRANT ALL PRIVILEGES ON flight_db. * TO 'flight_user'@'localhost';
 ~~~
 ##### Dummy data for application
-``` 
+~~~sql
 -- Dummy data for airport table
 INSERT INTO `flight_db`.`airport` (`airport_id`, `airport_city`, `airport_code`, `airport_name`) VALUES ('1', 'jaipur', 'JP', 'jaipur');
 INSERT INTO `flight_db`.`airport` (`airport_id`, `airport_city`, `airport_code`, `airport_name`) VALUES ('2', 'delhi', 'NCR', 'delhi');
@@ -88,7 +88,7 @@ INSERT INTO `flight_db`.`ticket` (`ticket_id`, `date`, `flight_number`, `source`
 INSERT INTO `flight_db`.`ticket` (`ticket_id`, `date`, `flight_number`, `source`, `reserve_seat`, `destination`, `user_id`) VALUES ('4', '2020-11-02', '101', 'jaipur', '2', 'bangalore', '1');
 INSERT INTO `flight_db`.`ticket` (`ticket_id`, `date`, `flight_number`, `source`, `reserve_seat`, `destination`, `user_id`) VALUES ('5', '2020-11-03', '102', 'jaipur', '15', 'bangalore', '1');
 INSERT INTO `flight_db`.`ticket` (`ticket_id`, `date`, `flight_number`, `source`, `reserve_seat`, `destination`, `user_id`) VALUES ('6', '2020-11-02', '101', 'jaipur', '5', 'bangalore', '1');
-```
+~~~
 
 ##### run application
 either you can build project using maven package or run `` java -jar flight-0.0.1-SNAPSHOT.jar ``
@@ -164,19 +164,23 @@ either you can build project using maven package or run `` java -jar flight-0.0.
 </pre>
 
 ##### RestAPI call endpoints
-``` json
+``` html
 1. register user 
 Endpoint url:- http://localhost:8080/user/add
 Request Type-POST method
 Example:
 Request:- http://localhost:8080/user/add/
+```
+``` json
 {
     "name": "pilaniya1",
     "userName": "iceman",
     "email": "pilaniya1@iiitb.org",
     "phoneNumber": 982688344
 }
+```
 Response:-
+```json
 {
     "id": 5,
     "name": "pilaniya5",
@@ -244,6 +248,7 @@ Endpoint url:- http://localhost:8080/user/viewReservation/{userId}
 Request Type-GET method
 Request:-http://localhost:8080/user/viewReservation/1
 Response:- 
+```json
 [
     {
         "id": 1,
@@ -302,4 +307,5 @@ Response:-
         "reserveSeats": 13
     }
 ]
+```
 ```
