@@ -94,7 +94,7 @@ INSERT INTO `flight_db`.`ticket` (`ticket_id`, `date`, `flight_number`, `source`
 either you can build project using maven package or run `` java -jar flight-0.0.1-SNAPSHOT.jar ``
 
 ##### tables in flight_db
-<pre>
+~~~sql
 +---------------------+
 | Tables_in_flight_db |
 +---------------------+
@@ -161,26 +161,22 @@ either you can build project using maven package or run `` java -jar flight-0.0.
 | destination   | varchar(255) | YES  |     | NULL    |                |
 | user_id       | bigint(20)   | YES  | MUL | NULL    |                |
 +---------------+--------------+------+-----+---------+----------------+
-</pre>
+~~~
 
 ##### RestAPI call endpoints
-``` html
+```
 1. register user 
 Endpoint url:- http://localhost:8080/user/add
 Request Type-POST method
 Example:
 Request:- http://localhost:8080/user/add/
-```
-``` json
 {
     "name": "pilaniya1",
     "userName": "iceman",
     "email": "pilaniya1@iiitb.org",
     "phoneNumber": 982688344
 }
-```
 Response:-
-```json
 {
     "id": 5,
     "name": "pilaniya5",
@@ -189,8 +185,8 @@ Response:-
     "phoneNumber": 123456789
 }
 ```
-``` json
-2.search flight
+``` 
+2. search flight
 Endpoint Url:- http://localhost:8080/flight/search/{source}/{destination}/{date}
 Request Type-GET method
 Example:
@@ -224,7 +220,7 @@ Response:-
 ]
 ```
 
-``` css
+``` 
 3. reserve seats
 Endpoint url:- http://localhost:8080/flight/reserveSeats/{userId}/{flightNumber}/{source}/{destination}/{date}/{seats}
 Request Type-GET method
@@ -242,13 +238,12 @@ Response:-
 Request:- http://localhost:8080/flight/reserveSeats/1/101/jaipur/bangalore/2020-11-02/65
 Response:-  only 32 tickets are available
 ```
-``` css
+``` 
 4. view reservation
 Endpoint url:- http://localhost:8080/user/viewReservation/{userId}
 Request Type-GET method
 Request:-http://localhost:8080/user/viewReservation/1
 Response:- 
-```json
 [
     {
         "id": 1,
@@ -307,5 +302,4 @@ Response:-
         "reserveSeats": 13
     }
 ]
-```
 ```
