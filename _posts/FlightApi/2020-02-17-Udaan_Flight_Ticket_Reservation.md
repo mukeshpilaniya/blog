@@ -36,7 +36,7 @@ Dependencies- spring web,spring data Jpa
 ```
 
 ##### run these commands to setup mysql database for application before running the application jar
-``` mysql
+~~~sql
 -- drop database if exits
 DROP DATABASE IF EXISTS flight_db;
 
@@ -48,9 +48,9 @@ CREATE USER 'flight_user'@'localhost' IDENTIFIED BY 'flight_password';
 
 -- provide all the permission
 GRANT ALL PRIVILEGES ON flight_db. * TO 'flight_user'@'localhost';
-```
+~~~
 ##### Dummy data for application
-``` json
+``` 
 -- Dummy data for airport table
 INSERT INTO `flight_db`.`airport` (`airport_id`, `airport_city`, `airport_code`, `airport_name`) VALUES ('1', 'jaipur', 'JP', 'jaipur');
 INSERT INTO `flight_db`.`airport` (`airport_id`, `airport_city`, `airport_code`, `airport_name`) VALUES ('2', 'delhi', 'NCR', 'delhi');
@@ -94,6 +94,7 @@ INSERT INTO `flight_db`.`ticket` (`ticket_id`, `date`, `flight_number`, `source`
 either you can build project using maven package or run `` java -jar flight-0.0.1-SNAPSHOT.jar ``
 
 ##### tables in flight_db
+<pre>
 ``` json
 +---------------------+
 | Tables_in_flight_db |
@@ -162,9 +163,10 @@ either you can build project using maven package or run `` java -jar flight-0.0.
 | user_id       | bigint(20)   | YES  | MUL | NULL    |                |
 +---------------+--------------+------+-----+---------+----------------+
 ``` 
+</pre>
 
 ##### RestAPI call endpoints
-``` css
+``` json
 1. register user 
 Endpoint url:- http://localhost:8080/user/add
 Request Type-POST method
@@ -185,7 +187,7 @@ Response:-
     "phoneNumber": 123456789
 }
 ```
-``` css
+``` json
 2.search flight
 Endpoint Url:- http://localhost:8080/flight/search/{source}/{destination}/{date}
 Request Type-GET method
