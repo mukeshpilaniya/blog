@@ -5,8 +5,10 @@
 
 **Design Pattern:-** observer design pattern while sending question Paper to registered Students, ProtoType design pattern while creating a clone of question Paper.
 
+![https://raw.githubusercontent.com/mukeshpilaniya/blog/gh-pages/_posts/OAES-Design-Pattern/OAES%20.png](https://raw.githubusercontent.com/mukeshpilaniya/blog/gh-pages/_posts/OAES-Design-Pattern/OAES%20.png)
+
 
 **Overview:-**
 
 - notifyResteredStudent()- method sent Question Paper to all registered Student who are appearing for exam
-- Cloneable- Inbuilt java interface methi\od for cloning question question
+- Cloneable- Inbuilt java interface methi\od for cloning question paper
