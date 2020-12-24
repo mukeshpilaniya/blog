@@ -43,7 +43,7 @@ sudo usermod -aG docker ${USER}
 ### Configure plugin:- 
 Logstash plugin automatically create calculator index in elasticsearch
 
-![](/assets/bkg.png)
+![](/blog/assets/bkg.png)
 ![](RackMultipart20201224-4-n1v06t_html_e2ab1cdc7f4f2c8f.png)
 ![](RackMultipart20201224-4-n1v06t_html_6478d60a269d534d.png)
 
