@@ -28,7 +28,7 @@ sudo usermod -aG docker ${USER}
 ```
 ### Installing Eclipse IDE:- [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
 
-###Installing Jenkins: -
+### Installing Jenkins: -
 1. Download the war file
 [http://mirrors.jenkins.io/war-stable/latest/jenkins.war](http://mirrors.jenkins.io/war-stable/latest/jenkins.war)
 2. Run the war file
@@ -58,7 +58,7 @@ Logstash plugin automatically create calculator index in elasticsearch
 1. Download rundeck from
 https://download.rundeck.org/deb/rundeck\_3.2.6.20200427-1\_all.deb
 2. install using dpkg
-`dpkg -i rundeck\_3.2.6.20200427-1\_all.deb`
+   `dpkg -i rundeck\_3.2.6.20200427-1\_all.deb`
 3. Rundeck start and stop command
 `sudo service rundeckd start`
 `sudo service rundeckd stop`
