@@ -11,12 +11,12 @@ GitHub Profile:[https://github.com/mukeshpilaniya/calculator](https://github.com
 - Rundeck (continuous deployment)
 - ELK (elastic search, Logstash, Kibana: continuous monitoring)
 
-Installing Git: - 
+### Installing Git: - 
 ```bash 
 sudo apt-get install git
 ```
 
-Installing Docker: -
+### Installing Docker: -
 ```bash
 sudo apt-get update
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
@@ -26,33 +26,37 @@ sudo apt update
 sudo apt install docker-ce
 sudo usermod -aG docker ${USER}
 ```
-Installing Eclipse IDE:- [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
+### Installing Eclipse IDE:- [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
 
-Installing Jenkins: -
+###Installing Jenkins: -
 1. Download the war file
 [http://mirrors.jenkins.io/war-stable/latest/jenkins.war](http://mirrors.jenkins.io/war-stable/latest/jenkins.war)
 2. Run the war file
  `java -jar jenkins.war`
 3. Got to url [http://localhost:8080](http://localhost:8080/)
 
-Jenkins Plugins: -
+### Jenkins Plugins: -
 1. Rundeck plugin
 2. Docker plugin
 3. Logstash plugin
 
-Configure plugin: - Logstash plugin automatically create calculator index in elasticsearch
+### Configure plugin:- 
+Logstash plugin automatically create calculator index in elasticsearch
 
-![](RackMultipart20201224-4-n1v06t_html_70cf81955190c13a.png) ![](RackMultipart20201224-4-n1v06t_html_e2ab1cdc7f4f2c8f.png) ![](RackMultipart20201224-4-n1v06t_html_6478d60a269d534d.png)
+![](RackMultipart20201224-4-n1v06t_html_70cf81955190c13a.png)
+![](RackMultipart20201224-4-n1v06t_html_e2ab1cdc7f4f2c8f.png)
+![](RackMultipart20201224-4-n1v06t_html_6478d60a269d534d.png)
 
-Installing Maven: -
-1. `sudo apt install maven`
-2. `mvn -version`
+### Installing Maven: -
+``` sh
+1. sudo apt install maven
+2. mvn -version
+```
 
-Installing Rundeck: -
+### Installing Rundeck: -
 
 1. Download rundeck from
 https://download.rundeck.org/deb/rundeck\_3.2.6.20200427-1\_all.deb
-
 2. install using dpkg
 `dpkg -i rundeck\_3.2.6.20200427-1\_all.deb`
 3. Rundeck start and stop command
@@ -63,19 +67,17 @@ Default address: http://localhost:4440
 default username and password: admin
 5. Allow rundeck to execute sudo commands on system terminal without password enter super user mode
 5.1. open file visudo
-`sudo visudo`
+    `sudo visudo`
 5.2. Add following lines at end of the file
 `rundeck ALL=(ALL) NOPASSWD: ALL`
 `Localhost ALL=(ALL) NOPASSWD: ALL`
 
-Create a new Project and job in Rundeck:-
+### Create a new Project and job in Rundeck:-
 
 1. Go to the url [http://localhost:4440](http://localhost:4440/) and create a new project name as calculator and save it.
-
 ![](RackMultipart20201224-4-n1v06t_html_9f07076428ced964.png)
 
 2. Create a new job in the same project, enter jobname and job group
-
 ![](RackMultipart20201224-4-n1v06t_html_7cbaaf6bc4d0f8a5.png)
 
 3. Navigate to workflow section and add the following commands to execute on registered node
