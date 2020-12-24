@@ -14,7 +14,7 @@ GitHub Profile:[https://github.com/mukeshpilaniya/calculator](https://github.com
 Installing Git: - ``sudo apt-get install git``
 
 Installing Docker: -
-```console
+```bash
 1. sudo apt-get update
 2. sudo apt install apt-transport-https ca-certificates curl software-properties-common
 3. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
