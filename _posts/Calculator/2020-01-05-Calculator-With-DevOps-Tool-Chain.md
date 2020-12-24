@@ -11,7 +11,10 @@ GitHub Profile:[https://github.com/mukeshpilaniya/calculator](https://github.com
 - Rundeck (continuous deployment)
 - ELK (elastic search, Logstash, Kibana: continuous monitoring)
 
-Installing Git: - ```bash sudo apt-get install git```
+Installing Git: - 
+```bash 
+sudo apt-get install git
+```
 
 Installing Docker: -
 ```bash
