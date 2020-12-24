@@ -3,30 +3,30 @@ DockerHub Profile: [https://hub.docker.com/r/pilaniya1337/calculator](https://hu
 GitHub Profile:[https://github.com/mukeshpilaniya/calculator](https://github.com/mukeshpilaniya/calculator)
 
 ### Required Tools: -
-- Git (source code management)
-- Docker (container node)
-- Eclipse /IntelliJ (Project IDE)
-- Jenkins (Continuous Integration: git, Continuous testing: Junit)
-- Maven (Continuous Build)
-- Rundeck (continuous deployment)
-- ELK (elastic search, Logstash, Kibana: continuous monitoring)
+1.  Git (source code management)
+2. Docker (container node)
+3.  Eclipse /IntelliJ (Project IDE)
+4. Jenkins (Continuous Integration: git, Continuous testing: Junit)
+5. Maven (Continuous Build)
+6.  Rundeck (continuous deployment)
+7.  ELK (elastic search, Logstash, Kibana: continuous monitoring)
 
 ### Installing Git: - 
-```bash 
-sudo apt-get install git
-```
+    sudo apt-get install git
+
 
 ### Installing Docker: -
-```bash
-sudo apt-get update
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-sudo apt update
-sudo apt install docker-ce
-sudo usermod -aG docker ${USER}
-```
-### Installing Eclipse IDE:- [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
+
+    sudo apt-get update
+    sudo apt install apt-transport-https ca-certificates curl software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+    sudo apt update
+    sudo apt install docker-ce
+    sudo usermod -aG docker ${USER}
+
+### Installing Eclipse IDE:- 
+[https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
 
 ### Installing Jenkins: -
 1. Download the war file
@@ -49,8 +49,8 @@ Logstash plugin automatically create calculator index in elasticsearch
 
 ### Installing Maven: -
 ``` sh
-1. sudo apt install maven
-2. mvn -version
+ sudo apt install maven
+ mvn -version
 ```
 
 ### Installing Rundeck: -
@@ -58,7 +58,7 @@ Logstash plugin automatically create calculator index in elasticsearch
 1. Download rundeck from
 https://download.rundeck.org/deb/rundeck\_3.2.6.20200427-1\_all.deb
 2. install using dpkg
-   `dpkg -i rundeck\_3.2.6.20200427-1\_all.deb`
+  > `dpkg -i rundeck\_3.2.6.20200427-1\_all.deb`
 3. Rundeck start and stop command
 `sudo service rundeckd start`
 `sudo service rundeckd stop`
@@ -69,8 +69,8 @@ default username and password: admin
     1. open file visudo
        `sudo visudo`
     2. Add following lines at end of the file
-        `rundeck ALL=(ALL) NOPASSWD: ALL`
-        `Localhost ALL=(ALL) NOPASSWD: ALL`
+        >`rundeck ALL=(ALL) NOPASSWD: ALL`
+        >`Localhost ALL=(ALL) NOPASSWD: ALL`
 
 ### Create a new Project and job in Rundeck:-
 
