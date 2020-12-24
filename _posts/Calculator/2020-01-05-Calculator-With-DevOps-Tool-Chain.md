@@ -86,13 +86,11 @@ default username and password: admin
 	2. Command 2 to start calculator container\
 ``sudo docker start calculator``
 	3. Command 3 to pass argument to calculator jar file\
-```bash
-sudo docker exec -t calculator java -cp calculator.jar org.iiitb.calculator.App 3 4 2
-```
+`` sudo docker exec -t calculator java -cp calculator.jar org.iiitb.calculator.App 3 4  2``
 
 4. Under Nodes select execute locally because all these commands will be executed on the local system.
  ![](RackMultipart20201224-4-n1v06t_html_b6abd021d735b673.png)
-
+ 
 5. Make note of UUID for future reference and save the job.
 
 ![](RackMultipart20201224-4-n1v06t_html_f67fd557118763ed.png)
@@ -152,8 +150,8 @@ The development of this project is happened in java and it is a maven-based proj
 
 ![](RackMultipart20201224-4-n1v06t_html_e9de2daf2e9e0e7e.png)
 
-**The next step is executing these commands: -**
-`mvn clean` - command attempt to clean target folder files that are generated during the build by maven
+**The next step is executing these commands: -**\
+`mvn clean` - command attempt to clean target folder files that are generated during the build by maven\
 `mvn package` - command convert the entire maven project into an executable jar package
 
 ### Pom xml file: -
@@ -161,8 +159,7 @@ To perform unit testing we have to add Junit dependency and maven-jar-plugin for
 
 ![](RackMultipart20201224-4-n1v06t_html_7bbc065937d564e2.png) ![](RackMultipart20201224-4-n1v06t_html_45bc22554f0df58f.png)
 
-After executing these commands, a target folder is generated automatically which contains our artifacts file calculator.jar. To test this artifact, copy this artifacts file and run the below command in the same directory.\
-
+After executing these commands, a target folder is generated automatically which contains our artifacts file calculator.jar. To test this artifact, copy this artifacts file and run the below command in the same directory.
 `java -cp calculator.jar org.iiitb.calculator.App`\
  org.iiitb.calculator is a package name and App is a class name where calculator methods are defined.
 
@@ -183,11 +180,13 @@ ENTRYPOINT ["java","-cp","calculator.jar","org.iiitb.calculator.App"]
 
 The next step is, create a repository(calculator) in github and push project code into calculator repository. The following set of commands will push the code into github repository.
 
+```shell
     git init
-    git remote add origin &quot;_[_https://github.com/mukeshpilaniya/calculator.git_](https://github.com/mukeshpilaniya/calculator.git)_&quot;
+    git remote add origin "https://github.com/mukeshpilaniya/calculator.git"
     git add .
-    git commit -m &quot;initial commit&quot;
+    git commit -m "initial commit"
     git push origin master.
+```
 
 ![](RackMultipart20201224-4-n1v06t_html_8b39520b5a9d086b.png)
 
@@ -245,7 +244,7 @@ Click on + icon and do following configuration
 Click Ok and select calculator SCM as Initial Job under Pipeline Flow. Then click save.
 ![](RackMultipart20201224-4-n1v06t_html_99335035b4ce8684.png)
 
-Pipeline View Layout: -
+### Pipeline View Layout: -
 ![](RackMultipart20201224-4-n1v06t_html_ffa1b9abb2c0a5a1.png)
 
 ### Create index in kibana and Visualize through graph: -
