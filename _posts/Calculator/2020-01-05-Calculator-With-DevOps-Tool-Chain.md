@@ -1,8 +1,8 @@
-**Title: -** Calculator with Devops Tool Chain
-**DockerHub Profile:** [https://hub.docker.com/r/pilaniya1337/calculator](https://hub.docker.com/r/pilaniya1337/calculator)
-**GitHub Profile:**[https://github.com/mukeshpilaniya/calculator](https://github.com/mukeshpilaniya/calculator)
 
-**Required Tools: -**
+DockerHub Profile: [https://hub.docker.com/r/pilaniya1337/calculator](https://hub.docker.com/r/pilaniya1337/calculator) <br>
+GitHub Profile:[https://github.com/mukeshpilaniya/calculator](https://github.com/mukeshpilaniya/calculator)
+
+### Required Tools: -
 - Git (source code management)
 - Docker (container node)
 - Eclipse /IntelliJ (Project IDE)
@@ -11,40 +11,41 @@
 - Rundeck (continuous deployment)
 - ELK (elastic search, Logstash, Kibana: continuous monitoring)
 
-**Installing Git:** - `sudo apt-get install git`
+Installing Git: - ``sudo apt-get install git``
 
-**Installing Docker: -**
-1. `sudo apt-get update`
-2. `sudo apt install apt-transport-https ca-certificates curl software-properties-common`
-3. `curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add`
-4. `sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"`
-5. `sudo apt update`
-6. `sudo apt install docker-ce`
-7. `sudo usermod -aG docker ${USER}`
+Installing Docker: -
+```dockerfile
+1. sudo apt-get update
+2. sudo apt install apt-transport-https ca-certificates curl software-properties-common
+3. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
+4. sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+5. sudo apt update
+6. sudo apt install docker-ce
+7. sudo usermod -aG docker ${USER}
+```
+Installing Eclipse IDE:- [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
 
-**Installing Eclipse IDE:-** [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
-
-**Installing Jenkins: -**
+Installing Jenkins: -
 1. Download the war file
 [http://mirrors.jenkins.io/war-stable/latest/jenkins.war](http://mirrors.jenkins.io/war-stable/latest/jenkins.war)
 2. Run the war file
  `java -jar jenkins.war`
 3. Got to url [http://localhost:8080](http://localhost:8080/)
 
-**Jenkins Plugins: -**
+Jenkins Plugins: -
 1. Rundeck plugin
 2. Docker plugin
 3. Logstash plugin
 
-**Configure plugin: -** Logstash plugin automatically create calculator index in elasticsearch
+Configure plugin: - Logstash plugin automatically create calculator index in elasticsearch
 
 ![](RackMultipart20201224-4-n1v06t_html_70cf81955190c13a.png) ![](RackMultipart20201224-4-n1v06t_html_e2ab1cdc7f4f2c8f.png) ![](RackMultipart20201224-4-n1v06t_html_6478d60a269d534d.png)
 
-**Installing Maven: -**
+Installing Maven: -
 1. `sudo apt install maven`
 2. `mvn -version`
 
-**Installing Rundeck: -**
+Installing Rundeck: -
 
 1. Download rundeck from
 https://download.rundeck.org/deb/rundeck\_3.2.6.20200427-1\_all.deb
@@ -64,7 +65,7 @@ default username and password: admin
 `rundeck ALL=(ALL) NOPASSWD: ALL`
 `Localhost ALL=(ALL) NOPASSWD: ALL`
 
-**Create a new Project and job in Rundeck:-**
+Create a new Project and job in Rundeck:-
 
 1. Go to the url [http://localhost:4440](http://localhost:4440/) and create a new project name as calculator and save it.
 
@@ -89,9 +90,9 @@ default username and password: admin
 
 ![](RackMultipart20201224-4-n1v06t_html_f67fd557118763ed.png)
 
-**ELK Installing: -**
+ELK Installing: -
 
-**Step 1 installing elasticsearch: -**
+Step 1 installing elasticsearch: -
 
 1. Set java 8 as default java versionAllow rundeck to execute sudo commands on system terminal without password
 2. enter super user mode
@@ -123,7 +124,7 @@ http.port: 9200
 12. Start ElasticSearch
 `sudo systemctl start elasticsearch.service`
 
-**Step 2 installing kibana:-**
+Step 2 installing kibana:-
 
 1. Let&#39;s start installing Kibana now and modify Kibana settings
 `sudo apt-get install kibana`
@@ -139,25 +140,25 @@ elasticsearch.url: [http://localhost:9200](http://localhost:9200/)
 
 1. Goto [http://localhost:5601](http://localhost:5601/)
 
-**Step 3 installing logstash: -**
+Step 3 installing logstash: -
 
 1. sudo apt-get install logstash
 2. sudo service logstash start
 3. Got to http://localhost:4440
 http://localhost:9200
 
-**SDLC: -**
+SDLC: -
 
-**Development Phase: -** The development of this project is happened in java and it is a maven-based project. The src/main/java directory contains the project source code and the src/test/java directory contains the test cases like unit testing.
+Development Phase: - The development of this project is happened in java and it is a maven-based project. The src/main/java directory contains the project source code and the src/test/java directory contains the test cases like unit testing.
 
 ![](RackMultipart20201224-4-n1v06t_html_e9de2daf2e9e0e7e.png)
 
-**The next step is executing these commands: -**
+The next step is executing these commands: -
 
 `mvn clean` - command attempt to clean target folder files that are generated during the build by maven
 `mvn package` - command convert the entire maven project into an executable jar package
 
-**Pom xml file: -** To perform unit testing we have to add Junit dependency and maven-jar-plugin for creating a package. It will create a package with a name calculator.
+Pom xml file: - To perform unit testing we have to add Junit dependency and maven-jar-plugin for creating a package. It will create a package with a name calculator.
 
 ![](RackMultipart20201224-4-n1v06t_html_7bbc065937d564e2.png) ![](RackMultipart20201224-4-n1v06t_html_45bc22554f0df58f.png)
 
@@ -166,7 +167,7 @@ After executing these commands, a target folder is generated automatically which
 `java -cp calculator.jar org.iiitb.calculator.App`
  org.iiitb.calculator is a package name and App is a class name where calculator methods are defined.
 
-**Docker file: -** create a &#39;Dockerfile&#39; under project level (at same level of pom.xml)
+Docker file: - create a &#39;Dockerfile&#39; under project level (at same level of pom.xml)
 ```dockerfile
 # Start with a base image containing Java runtime
 FROM openjdk:8
@@ -190,12 +191,12 @@ git push origin master.
 
 ![](RackMultipart20201224-4-n1v06t_html_8b39520b5a9d086b.png)
 
-**Build a docker Image: -** Enter the following command in the terminal with the home directory of project
+Build a docker Image: - Enter the following command in the terminal with the home directory of project
 `sudo docker build -t calculator\_image .`
 This command will create project specific docker image(calculator\_image), now create a container of this image using the following command
 `sudo run --name calculator\_container -d calculator\_image`
 
-**Software Development life cycle: -** The whole project is developed following the DevOps model and using various tools. The software development Life Cycle of this project includes six stages
+Software Development life cycle: - The whole project is developed following the DevOps model and using various tools. The software development Life Cycle of this project includes six stages
 
 1. Source Control Management (git)
 2. Code Building (maven)
@@ -204,44 +205,44 @@ This command will create project specific docker image(calculator\_image), now c
 5. Deploying (Rundeck)
 6. Monitoring (ELK)
 
-**Setup jenkins Pipeline: -**
-1. **Job1: Calculator SCM: -** SCM stands for source code management and used for managing the source code of the application, for this project source code is stored in a git repository hosted on GitHub at mukeshpilaniya/calculator. Here we are using pollSCM which checks the git repository after an interval and if there is a change in the code it triggers the pipeline otherwise it doesn&#39;t do anything.
+Setup jenkins Pipeline: -
+1. Job1: Calculator SCM: - SCM stands for source code management and used for managing the source code of the application, for this project source code is stored in a git repository hosted on GitHub at mukeshpilaniya/calculator. Here we are using pollSCM which checks the git repository after an interval and if there is a change in the code it triggers the pipeline otherwise it doesn&#39;t do anything.
 Create a FreeStyle project names as calculator SCM and following is the configuration in this step
 ![](RackMultipart20201224-4-n1v06t_html_593a36ea541acd.png)
 ![](RackMultipart20201224-4-n1v06t_html_65dfb79102fb8d7c.png)
 ![](RackMultipart20201224-4-n1v06t_html_d57afc5108099503.png)
 
-2. **Job2: Calculator Build: -** This step build triggers automatically when the first job is finished and it will build a jar file in the jenkins working directory if the build is successful it will automatically trigger the calculator Test job. Create a maven project name as calculator Build and following is the configuration in this step.
+2. Job2: Calculator Build: - This step build triggers automatically when the first job is finished and it will build a jar file in the jenkins working directory if the build is successful it will automatically trigger the calculator Test job. Create a maven project name as calculator Build and following is the configuration in this step.
 ![](RackMultipart20201224-4-n1v06t_html_1aadc614773b6fb1.png)
 ![](RackMultipart20201224-4-n1v06t_html_53b42bc2747e9d48.png)
 ![](RackMultipart20201224-4-n1v06t_html_3710d75579c680f7.png)
 ![](RackMultipart20201224-4-n1v06t_html_16552df7f1e1d7b3.png)
 
-3. **Job3: CalculatorTest:** - If the build is successful then the calculator test job will automatically be triggered. it will build the docker image and push it into dockerhub. This job will run test cases and send the control to the calculator deploy. Create a maven project name as calculator Test and Configuration of this step is as follows.
+3. Job3: CalculatorTest: - If the build is successful then the calculator test job will automatically be triggered. it will build the docker image and push it into dockerhub. This job will run test cases and send the control to the calculator deploy. Create a maven project name as calculator Test and Configuration of this step is as follows.
 Create a Maven Project and name its calculator Test
 ![](RackMultipart20201224-4-n1v06t_html_8db04d166cd679c7.png)
 ![](RackMultipart20201224-4-n1v06t_html_76697942be36ed5.png)
 ![](RackMultipart20201224-4-n1v06t_html_3e6f013581524c98.png)
 ![](RackMultipart20201224-4-n1v06t_html_bbb37beb7ce97308.png)
 
-4. **Job4: calculator deploy:** -This job will automatically trigger if the calculator test job is successfully executed and it will trigger the specified rundeck job.
+4. Job4: calculator deploy: -This job will automatically trigger if the calculator test job is successfully executed and it will trigger the specified rundeck job.
 Create a FreeStyle project and name it as a calculator deploy. Configuration of this step is as follows.
 Rundeck instance: rundeck
 Copy the job UUID in job identifier id in Post Build Actions → Rundeck
 ![](RackMultipart20201224-4-n1v06t_html_bbe8fdde32ef35f8.png)
 ![](RackMultipart20201224-4-n1v06t_html_c8838bf695ee80b7.png)
 
-**Create Pipeline View: -**
+Create Pipeline View: -
 Click on + icon and do following configuration
 ![](RackMultipart20201224-4-n1v06t_html_56e8a64a131641e3.png)
 
 Click Ok and select calculator SCM as Initial Job under Pipeline Flow. Then click save.
 ![](RackMultipart20201224-4-n1v06t_html_99335035b4ce8684.png)
 
-**Pipeline View Layout: -**
+Pipeline View Layout: -
 ![](RackMultipart20201224-4-n1v06t_html_ffa1b9abb2c0a5a1.png)
 
-**Create index in kibana and Visualize through graph:** -
+Create index in kibana and Visualize through graph: -
 1. Go to url [http://localhost:5601](http://localhost:5601/)
 
 2. To create kibana index pattern navigate to Management-\&gt;under kibana section choose index pattern and create new index pattern name as &quot;calculator\*&quot;. Click on next step and choose @Timestamp options
@@ -257,7 +258,7 @@ Create 3-4 graph and save as calculator 1, calculator 2, calculator 3
 1. To create a Dashboard of calculator, navigate to Dashboard \&gt;click on add-\&gt;in search bar type calculator it will show calculator 1,2 and 3 select all of these and save the dashboard name as Calculator.
 ![](RackMultipart20201224-4-n1v06t_html_18e23dd4b1a09902.png)
 
-**Results and execution: -** When new features are introduced in a project, then from its building, testing, deployment and monitoring is done in an automated manner.
+Results and execution: - When new features are introduced in a project, then from its building, testing, deployment and monitoring is done in an automated manner.
 
 We first write code for addition method and latter add subtract, multiplication and division method. output of each method as we added in our project code
 
@@ -269,9 +270,8 @@ We first write code for addition method and latter add subtract, multiplication 
 
 ![](RackMultipart20201224-4-n1v06t_html_a305758f53bc760b.png)
 
-**Conclusion: -** DevOps tools help in automating the task of building, testing, releasing, deploying, operating and monitoring in a convenient and efficient way with enormous speed. Manual intervention prone to errors but automated environments are not. Data sharing techniques are used effectively to connect Devs with Ops.
+Conclusion: - DevOps tools help in automating the task of building, testing, releasing, deploying, operating and monitoring in a convenient and efficient way with enormous speed. Manual intervention prone to errors but automated environments are not. Data sharing techniques are used effectively to connect Devs with Ops.
 
-**References: -**
-
-[1] GitHub project: -[https://github.com/mukeshpilaniya/calculator](https://github.com/mukeshpilaniya/calculator)
-[2] DockerHub profile: -[https://hub.docker.com/u/pilaniya1337](https://hub.docker.com/u/pilaniya1337)
+References: -
+[1] GitHub project: [https://github.com/mukeshpilaniya/calculator](https://github.com/mukeshpilaniya/calculator)
+[2] DockerHub profile: [https://hub.docker.com/u/pilaniya1337](https://hub.docker.com/u/pilaniya1337)
