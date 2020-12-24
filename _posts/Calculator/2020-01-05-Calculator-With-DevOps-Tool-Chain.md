@@ -11,17 +11,17 @@ GitHub Profile:[https://github.com/mukeshpilaniya/calculator](https://github.com
 - Rundeck (continuous deployment)
 - ELK (elastic search, Logstash, Kibana: continuous monitoring)
 
-Installing Git: - ``sudo apt-get install git``
+Installing Git: - ```bash sudo apt-get install git```
 
 Installing Docker: -
 ```bash
-1. sudo apt-get update
-2. sudo apt install apt-transport-https ca-certificates curl software-properties-common
-3. curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
-4. sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-5. sudo apt update
-6. sudo apt install docker-ce
-7. sudo usermod -aG docker ${USER}
+sudo apt-get update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+sudo apt update
+sudo apt install docker-ce
+sudo usermod -aG docker ${USER}
 ```
 Installing Eclipse IDE:- [https://www.eclipse.org/downloads/](https://www.eclipse.org/downloads/)
 
