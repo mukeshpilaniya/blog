@@ -66,9 +66,9 @@ https://download.rundeck.org/deb/rundeck\_3.2.6.20200427-1\_all.deb
 Default address: http://localhost:4440
 default username and password: admin
 5. Allow rundeck to execute sudo commands on system terminal without password enter super user mode
-   5.1. open file visudo
+    1. open file visudo
        `sudo visudo`
-   5.2. Add following lines at end of the file
+    2. Add following lines at end of the file
         `rundeck ALL=(ALL) NOPASSWD: ALL`
         `Localhost ALL=(ALL) NOPASSWD: ALL`
 
