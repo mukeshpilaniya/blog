@@ -43,9 +43,9 @@ sudo usermod -aG docker ${USER}
 ### Configure plugin:- 
 Logstash plugin automatically create calculator index in elasticsearch
 
-![](/blog/assets/bkg.png)
-![](RackMultipart20201224-4-n1v06t_html_e2ab1cdc7f4f2c8f.png)
-![](RackMultipart20201224-4-n1v06t_html_6478d60a269d534d.png)
+![](/blog/assets/calculator/1.png)
+![](/blog/assets/calculator/2.png)
+![](/blog/assets/calculator/3.png)
 
 ### Installing Maven: -
 ``` sh
@@ -75,25 +75,25 @@ default username and password: admin
 ### Create a new Project and job in Rundeck:-
 
 1. Go to the url [http://localhost:4440](http://localhost:4440/) and create a new project name as calculator and save it.
-![](RackMultipart20201224-4-n1v06t_html_9f07076428ced964.png)
+![](/blog/assets/calculator/4.png)
 
 2. Create a new job in the same project, enter jobname and job group
-![](RackMultipart20201224-4-n1v06t_html_7cbaaf6bc4d0f8a5.png)
+![](/blog/assets/calculator/5.png)
 
 3. Navigate to workflow section and add the following commands to execute on registered node
-	1. command 1 to replace old jar file with new jar file\
+    1. command 1 to replace old jar file with new jar file\
 ``sudo docker cp /var/lib/jenkins/workspace/Calculator\ Build/target/Calculator.jar calculator:/``
-	2. Command 2 to start calculator container\
+    2. Command 2 to start calculator container\
 ``sudo docker start calculator``
-	3. Command 3 to pass argument to calculator jar file\
+    3. Command 3 to pass argument to calculator jar file\
 `` sudo docker exec -t calculator java -cp calculator.jar org.iiitb.calculator.App 3 4  2``
 
 4. Under Nodes select execute locally because all these commands will be executed on the local system.
- ![](RackMultipart20201224-4-n1v06t_html_b6abd021d735b673.png)
+ ![](/blog/assets/calculator/6.png)
  
 5. Make note of UUID for future reference and save the job.
 
-![](RackMultipart20201224-4-n1v06t_html_f67fd557118763ed.png)
+![](/blog/assets/calculator/7.png)
 
 ### ELK Installing: -
 
@@ -148,7 +148,7 @@ http://localhost:9200
 #### Development Phase: -
 The development of this project is happened in java and it is a maven-based project. The src/main/java directory contains the project source code and the src/test/java directory contains the test cases like unit testing.
 
-![](RackMultipart20201224-4-n1v06t_html_e9de2daf2e9e0e7e.png)
+![](/blog/assets/calculator/8.png)
 
 **The next step is executing these commands: -**\
 `mvn clean` - command attempt to clean target folder files that are generated during the build by maven\
@@ -157,7 +157,7 @@ The development of this project is happened in java and it is a maven-based proj
 ### Pom xml file: -
 To perform unit testing we have to add Junit dependency and maven-jar-plugin for creating a package. It will create a package with a name calculator.
 
-![](RackMultipart20201224-4-n1v06t_html_7bbc065937d564e2.png) ![](RackMultipart20201224-4-n1v06t_html_45bc22554f0df58f.png)
+![](/blog/assets/calculator/9.png)
 
 After executing these commands, a target folder is generated automatically which contains our artifacts file calculator.jar. To test this artifact, copy this artifacts file and run the below command in the same directory.
 `java -cp calculator.jar org.iiitb.calculator.App`\
@@ -181,14 +181,14 @@ ENTRYPOINT ["java","-cp","calculator.jar","org.iiitb.calculator.App"]
 The next step is, create a repository(calculator) in github and push project code into calculator repository. The following set of commands will push the code into github repository.
 
 ```shell
-    git init
-    git remote add origin "https://github.com/mukeshpilaniya/calculator.git"
-    git add .
-    git commit -m "initial commit"
-    git push origin master.
+git init
+git remote add origin "https://github.com/mukeshpilaniya/calculator.git"
+git add .
+git commit -m "initial commit"
+git push origin master.
 ```
 
-![](RackMultipart20201224-4-n1v06t_html_8b39520b5a9d086b.png)
+![](/blog/assets/calculator/10.png)
 
 ### Build a docker Image: - 
 Enter the following command in the terminal with the home directory of project\
@@ -210,69 +210,69 @@ The whole project is developed following the DevOps model and using various tool
 #### 1. Job1: Calculator SCM: 
 SCM stands for source code management and used for managing the source code of the application, for this project source code is stored in a git repository hosted on GitHub at mukeshpilaniya/calculator. Here we are using pollSCM which checks the git repository after an interval and if there is a change in the code it triggers the pipeline otherwise it doesn&#39;t do anything.\
 Create a FreeStyle project names as calculator SCM and following is the configuration in this step
-![](RackMultipart20201224-4-n1v06t_html_593a36ea541acd.png)
-![](RackMultipart20201224-4-n1v06t_html_65dfb79102fb8d7c.png)
-![](RackMultipart20201224-4-n1v06t_html_d57afc5108099503.png)
+![](/blog/assets/calculator/11.png)
+![](/blog/assets/calculator/12.png)
+![](/blog/assets/calculator/13.png)
 
 #### 2. Job2: Calculator Build: 
 This step build triggers automatically when the first job is finished and it will build a jar file in the jenkins working directory if the build is successful it will automatically trigger the calculator Test job. Create a maven project name as calculator Build and following is the configuration in this step.
-![](RackMultipart20201224-4-n1v06t_html_1aadc614773b6fb1.png)
-![](RackMultipart20201224-4-n1v06t_html_53b42bc2747e9d48.png)
-![](RackMultipart20201224-4-n1v06t_html_3710d75579c680f7.png)
-![](RackMultipart20201224-4-n1v06t_html_16552df7f1e1d7b3.png)
+![](/blog/assets/calculator/14.png)
+![](/blog/assets/calculator/15.png)
+![](/blog/assets/calculator/16.png)
+![](/blog/assets/calculator/17.png)
 
 #### 3. Job3: CalculatorTest: - 
 If the build is successful then the calculator test job will automatically be triggered. it will build the docker image and push it into dockerhub. This job will run test cases and send the control to the calculator deploy. Create a maven project name as calculator Test and Configuration of this step is as follows.\
 Create a Maven Project and name its calculator Test
-![](RackMultipart20201224-4-n1v06t_html_8db04d166cd679c7.png)
-![](RackMultipart20201224-4-n1v06t_html_76697942be36ed5.png)
-![](RackMultipart20201224-4-n1v06t_html_3e6f013581524c98.png)
-![](RackMultipart20201224-4-n1v06t_html_bbb37beb7ce97308.png)
+![](/blog/assets/calculator/18.png)
+![](/blog/assets/calculator/19.png)
+![](/blog/assets/calculator/20.png)
+![](/blog/assets/calculator/21.png)
 
 #### 4. Job4: calculator deploy: -
 This job will automatically trigger if the calculator test job is successfully executed and it will trigger the specified rundeck job.\
 Create a FreeStyle project and name it as a calculator deploy. Configuration of this step is as follows.\
 Rundeck instance: rundeck\
 Copy the job UUID in job identifier id in Post Build Actions → Rundeck\
-![](RackMultipart20201224-4-n1v06t_html_bbe8fdde32ef35f8.png)
-![](RackMultipart20201224-4-n1v06t_html_c8838bf695ee80b7.png)
+![](/blog/assets/calculator/22.png)
+![](/blog/assets/calculator/23.png)
 
 ### Create Pipeline View: -
 Click on + icon and do following configuration
-![](RackMultipart20201224-4-n1v06t_html_56e8a64a131641e3.png)
+![](/blog/assets/calculator/24.png)
 
 Click Ok and select calculator SCM as Initial Job under Pipeline Flow. Then click save.
-![](RackMultipart20201224-4-n1v06t_html_99335035b4ce8684.png)
+![](/blog/assets/calculator/25.png)
 
 ### Pipeline View Layout: -
-![](RackMultipart20201224-4-n1v06t_html_ffa1b9abb2c0a5a1.png)
+![](/blog/assets/calculator/26.png)
 
 ### Create index in kibana and Visualize through graph: -
 1. Go to url [http://localhost:5601](http://localhost:5601/)
 2. To create kibana index pattern navigate to Management-&gt;under kibana section choose index pattern and create new index pattern name as &quot;calculator\*&quot;. Click on next step and choose @Timestamp options
-![](RackMultipart20201224-4-n1v06t_html_3e549d46a5116d41.png)
+![](/blog/assets/calculator/27.png)
 
 3. To see the log navigate to discover-> select calculator as index pattern
-![](RackMultipart20201224-4-n1v06t_html_9209ae05577c83de.png)
+![](/blog/assets/calculator/28.png)
 
 4. To visualize logs navigate to Visualize-&gt;click on + icon -&gt;select one of map type-&gt;select calculator\* index -&gt;select appropriate fields-&gt;click on run-&gt;save -&gt;name as calculator 1\
 Create 3-4 graph and save as calculator 1, calculator 2, calculator 3
-![](RackMultipart20201224-4-n1v06t_html_105e13de8ca3219c.png)
+![](/blog/assets/calculator/29.png)
 
 5. To create a Dashboard of calculator, navigate to Dashboard &gt;click on add-&gt;in search bar type calculator it will show calculator 1,2 and 3 select all of these and save the dashboard name as Calculator.
-![](RackMultipart20201224-4-n1v06t_html_18e23dd4b1a09902.png)
+![](/blog/assets/calculator/30.png)
 
 ### Results and execution: -
 When new features are introduced in a project, then from its building, testing, deployment and monitoring is done in an automated manner.\
 We first write code for addition method and latter add subtract, multiplication and division method. output of each method as we added in our project code
 
-![](RackMultipart20201224-4-n1v06t_html_df2f4f5f7c9b377c.png)
+![](/blog/assets/calculator/31.png)
 
-![](RackMultipart20201224-4-n1v06t_html_14a811037435a557.png)
+![](/blog/assets/calculator/32.png)
 
-![](RackMultipart20201224-4-n1v06t_html_19e6131422ab2e0f.png)
+![](/blog/assets/calculator/33.png)
 
-![](RackMultipart20201224-4-n1v06t_html_a305758f53bc760b.png)
+![](/blog/assets/calculator/34.png)
 
 ### Conclusion: -
 DevOps tools help in automating the task of building, testing, releasing, deploying, operating and monitoring in a convenient and efficient way with enormous speed. Manual intervention prone to errors but automated environments are not. Data sharing techniques are used effectively to connect Devs with Ops.
