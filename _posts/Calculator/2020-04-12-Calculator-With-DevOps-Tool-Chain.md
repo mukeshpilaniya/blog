@@ -92,7 +92,6 @@ default username and password: admin
  ![](/blog/assets/calculator/6.png)
  
 5. Make note of UUID for future reference and save the job.
-
 ![](/blog/assets/calculator/7.png)
 
 ### ELK Installing: -
