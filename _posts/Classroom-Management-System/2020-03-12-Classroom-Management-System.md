@@ -53,10 +53,10 @@ docker build -t cms-springboot .
 docker run -t -p 8082:8082 --name cms-springboot --link cms-mysql:mysql -d cms-springboot
 ```
 
-## Springboot ContainrerSetup without building Project
+## Springboot ContainerSetup without building Project
    pull the springboot-cms docker image from docker hub
 ```docker
-    docker pull pilaniya1337/cms
+docker pull pilaniya1337/cms
 ```
    create cms-springboot container from docker image
 ```docekr
