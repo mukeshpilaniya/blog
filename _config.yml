@@ -5,7 +5,7 @@ author:
   email: "MukeshPilaniya_IIITB@outlook.com"
   url: "https://mukeshpilaniya.github.io/blog/"
 
-baseurl: /
+baseurl: /blog
 
 source: .
 destination: ./_site
