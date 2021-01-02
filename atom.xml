@@ -6,7 +6,7 @@ layout: null
   <channel>
     <title>{{ site.title | xml_escape }}</title>
     <description>{{ site.description | xml_escape }}</description>
-    <link>https://mukeshpilaniya.github.io/blog/</link>
+    <link>https://raw.githubusercontent.com/mukeshpilaniya/blog/gh-pages/assets/site/pilaniya-blog.png</link>
     <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
     <author>
       <name>{{ site.author.name }}</name>
