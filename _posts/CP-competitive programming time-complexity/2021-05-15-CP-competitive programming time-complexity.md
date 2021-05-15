@@ -1,8 +1,7 @@
-# CP-competitive programming time-complexity
 
 Hello all, if you doing competitive programming or solving any questions on coding platform like leetcode, hackerearth or hackerrank then sometime you might face TLE  error while submitting your code to online judges. So today, I will talk about how you can train your mind before solving any coding problem and can get rid of TLE error. I'm sharing my personal experiences this might be  useful for you, while solving online assessment on hackerrank ansd hackerearth.
 
-> For this table construction i have assumed that on average online judge will be able to finished 10^6 Instruction per second.
+` For this table construction i have assumed that on average online judge will be able to finished 10^6 Instruction per second.`
 
 | Range of N |                                           Allowed Time Complexity |                                    Most Used algo |
 |------------|------------------------------------------------------------------:|--------------------------------------------------:|
