@@ -3,7 +3,7 @@ Hello all, when you doing competitive programming or solving any coding question
 
 ``` For this table construction i have assumed that on average online judge will be able to finished 10^6 Instruction per second.```
 ~~~sql
-| Range of N |                                           Allowed Time Complexity |                                    Most Used technique |
+| Range of N |                                           Allowed Time Complexity |                                    Most Used algo |
 |------------|------------------------------------------------------------------:|--------------------------------------------------:|
 | N≤10       |                                                             O(N!) |                                       Brute Force |
 | N≤25       |                                                            O(2^N) |                Recursion/Brute force/Backtracking |
