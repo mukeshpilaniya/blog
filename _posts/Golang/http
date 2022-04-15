@@ -1,0 +1,4 @@
+
+http.HandlerFunc
+http.Handler
+http.Handle
