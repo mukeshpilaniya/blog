@@ -1,0 +1,3 @@
+go keyword
+go anonymous func
+go waitgroup

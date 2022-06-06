@@ -2,3 +2,7 @@
 http.HandlerFunc
 http.Handler
 http.Handle
+
+1. Differnce in mux and router 
+
+2. 
