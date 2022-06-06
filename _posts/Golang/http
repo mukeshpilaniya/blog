@@ -1,8 +1,19 @@
+ServeMux
+    https://rickyanto.com/understanding-go-standard-http-libraries-servemux-handler-handle-and-handlefunc/
+    https://golang.hotexamples.com/examples/net.http/ServeMux/Handle/golang-servemux-handle-method-examples.html
 
 http.HandlerFunc
+    func (mux *ServeMux) HandleFunc(pattern string, handler func(ResponseWriter, *Request))
 http.Handler
+    func (mux *ServeMux) Handler(r *Request) (h Handler, pattern string)
 http.Handle
+    func (mux *ServeMux) Handle(pattern string, handler Handler)
 
+<<<<<<< HEAD
+  
+=======
 1. Differnce in mux and router 
 
 2. 
+
+>>>>>>> e59d3d2f79ec0d901e9615bad5e755ed4eff583d
