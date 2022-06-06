@@ -1,4 +1,10 @@
 1. Builder Pattern
+- Builder is a creational design pattern, which allows constructing complex objects step by step.
+
+- https://refactoring.guru/design-patterns/builder/go/example#:~:text=Builder%20is%20a%20creational%20design,using%20the%20same%20construction%20process.
+
+- https://devcharmander.medium.com/design-patterns-in-golang-the-builder-dac468a71194
+
 type Employee struct {
   Name      string
   Role      string
