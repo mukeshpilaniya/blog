@@ -1,0 +1,9 @@
+- Architecture 
+Functional Requirement:
+- Push and Push based mechanism 
+- Async Task message
+- send email and product alerts
+
+References-
+https://www.codekarle.com/system-design/Notification-system-design.html
+https://www.linkedin.com/pulse/notification-system-design-rajiv-srivastava/
