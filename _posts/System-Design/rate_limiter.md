@@ -4,6 +4,8 @@ https://github.com/gitgik/distributed-system-design/blob/master/designing_api_ra
 
 https://www.enjoyalgorithms.com/blog/design-api-rate-limiter
 
+https://tools.ietf.org/id/draft-polli-ratelimit-headers-00.html
+
 Algorithms-
 1. Token Bucket
 2. leaky Bucket 
@@ -12,4 +14,4 @@ Algorithms-
 3. fixed window counter
     disadv- traffic is not smooth 
 4. sliding logs 
-5. sliding window counter
+5. sliding window countermy
