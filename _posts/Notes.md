@@ -6,7 +6,8 @@
 5. Builder pattern
 6. Facade pattern
 
-
+## Design Principles
+1. 
 
 
 ## kafka 
@@ -22,8 +23,32 @@
 
 
 
-
-
+## Amazone 
+    5 stages
+- 1 online assisments
+#### onsite stage 4 interview (understand first)
+- 1 DS first round (choosing correct data structure)
+    - select and use ds and algo for the given problems
+    - All the topics arrays, strings, linkedlist, stacks, queue, trees, graphs(BFS, DFS), hashmap, searching and sorting, sliding window problems, DP
+- 2 problem solving second round (Implementing correct data structure)
+    Implement and make the soluction work
+    - list down all the solution (go for solution)
+    - write clean code(best way to write code)
+    - handle null and edge cases
+    - time and space complexity
+    - modularity
+- hiring manager round
+    - behaviour question, earn trust
+    - client (vp, manager)
+    - negative notes, positive notes -->Impactful your contribution
+    - how Impactful my contribution is on organistion -->AWS cloud features
+    - costumer requirements
+    - explain your contribution which is highly impacted
+- leadership round (bar raiser)
+    - deliver the best
+    - work on the solution
+    - modular code, clean code, maintainable code
+    - amazone previous question(gfg, refacyoring guru)
 
 
 ## Golang interview questions
