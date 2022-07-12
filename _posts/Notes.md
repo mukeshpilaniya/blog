@@ -9,6 +9,13 @@
 ## Design Principles
 1. 
 
+## Amazone behaviour questions
+1. Tell me a time you took time in an area out of your responsibility? What resulted of it?
+2. Tell me a time when you had to deal with a tough or critical feedback and what you did in response?
+3. Tell me a time that you were able to deliver on a tight deadline and what sacrifices did you make to do?
+4. Tell me a time that you solved a complex problem with a simple solution?
+5. Tell me the hardest bug you had to deal with and how you solved it and what impact it had?
+6. Tell me a time you got really stuck and had a remove a serious block and what result it had?
 
 ## kafka 
 
@@ -74,3 +81,15 @@
 
 
 
+## Api Gateway 
+- Monitoring and logging stats 
+- throttling
+    - rate limiting
+    - user quota
+- encoding/Decoding request/response (JSON/XML)
+- Cache
+- Proxy
+- Authentication
+- Enable Https for back services
+- Time of request
+- Loadbalancing 
