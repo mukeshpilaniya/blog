@@ -59,10 +59,14 @@
 
 
 ## Golang interview questions
+- channel
+- goroutine
+- goroutine vs thread
+- concurrency pattern
+- testing in go
 
 
-
-
+## Kafka and Redis arch
 
 
 ## Nosql vs SQL database
@@ -93,3 +97,8 @@
 - Enable Https for back services
 - Time of request
 - Loadbalancing 
+
+
+
+### System Design
+- CarRental System
