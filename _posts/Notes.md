@@ -109,8 +109,11 @@
 
 
 ### Goals
-- Coding
+- Coding (500 questions)
 - Golang/ Testing/ Bechmarking
-- System Design
+- System Design (10 design question)
 - Open Source Projects
+    - https://github.com/SigNoz
 - Self Projects
+    - Saas based projects
+    - Monitoring 
