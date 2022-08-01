@@ -102,3 +102,15 @@
 
 ### System Design
 - CarRental System
+
+
+
+
+
+
+### Goals
+- Coding
+- Golang/ Testing/ Bechmarking
+- System Design
+- Open Source Projects
+- Self Projects
