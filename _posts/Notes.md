@@ -104,16 +104,17 @@
 - CarRental System
 
 
-
-
-
-
 ### Goals
 - Coding (500 questions)
-- Golang/ Testing/ Bechmarking
+- Golang/ Testing/ Bechmarking:q!
 - System Design (10 design question)
 - Open Source Projects
     - https://github.com/SigNoz
 - Self Projects
     - Saas based projects
     - Monitoring 
+- Kubernetics learn
+
+
+## Go in Action
+-   
