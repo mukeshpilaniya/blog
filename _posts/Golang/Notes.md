@@ -39,5 +39,5 @@ always easy to track a piece of memory when it’s no longer needed; threads and
 concurrency make it even harder.
     - Summary
         - Go is modern, fast, and comes with a powerful standard library.
-        - Go has concurrency built-in.
-        - Go uses interfaces as the building blocks of code reuse.
+        - Go has concurrency built in.
+        - Go uses interfaces as the building blocks of code reuse.
