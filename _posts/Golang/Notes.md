@@ -1,4 +1,4 @@
-1. Solving modern programming challenges with Go
+## Solving modern programming challenges with Go
     - Development speed
         -  Consequently, many Go applications compile in under a second. The entire Go source tree compiles in under 20 seconds on modern hardware.
         - Writing applications in dynamic languages makes you productive quickly because
