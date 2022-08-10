@@ -211,4 +211,8 @@ underlying array
             }
             ```
             ![Slice passing to func](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/slice_pass_func.png?raw=true)
-        - On a 64-bit architecture, a slice requires 24 bytes of memory while passing to functions.
+        - On a 64-bit architecture, a slice requires 24 bytes of memory while passing to functions.The pointer field
+requires 8 bytes, and the length and capacity fields require 8 bytes respectively
+3. Map
+    - Map internals and fundamentals
+        - A map is a data structure that provides you with an unordered collection of key/value pairs.
