@@ -10,6 +10,7 @@ variable name denotes the entire array and, therefore, an array can be assigned 
 other arrays of the same type. 
         - When an array is initialized in Go, each
 individual element that belongs to the array is initialized to its zero value.
+![array](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/array.png?raw=true)
     - Declaring and Initializing
         - Declare an integer array of five elements  
             `var array [5]int` 
@@ -41,6 +42,7 @@ you don’t specify a value, you’re creating a slice.
                 `array := [3]int{10, 20, 30}`
             -  Create a slice of integers with a length and capacity of three.  
                 `slice := []int{10, 20, 30}`
+![Slice](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/slice.png?raw=true)
     - Creating and Initializing
         - When you use make, one
 option you have is to specify the length of the slice.
@@ -60,9 +62,11 @@ slice[0] = append(slice[0], 20)
             `var slice []int`  
              A nil slice is created
 by declaring a slice without any initialization.
+![Nil Slice ](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/nil_slice.png?raw=true)
         - Declaring an empty slice  
             `slice := make([]int, 0)`  
             `slice := []int{}`
+![empty Slice](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/empty_slice.png?raw=true)
         - NIL useful when you want to represent a slice that doesn’t exist, such as when an exception
 occurs in a function that returns a slice.
         - Empty slices are useful when you want to represent an empty collection, such as when
@@ -78,6 +82,7 @@ a new slice.
             ```
             Changes made to the shared section of the underlying array by one slice can be
 seen by the other slice.
+            ![newSlice](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/working_with_slice.png?raw=true)
         - Calculating Length and Capacity of Slice  
             For slice[i:j:k] or [2:3:4]  
             Length: j - i or 3 - 2 = 1  
@@ -102,6 +107,7 @@ your append call returns, it provides you a new slice with the changes.The appen
             Because there was available capacity in the underlying array for newSlice, the
 append operation incorporated the available element into the slice’s length and
 assigned the value. Since the original slice is sharing the underlying array, slice also changed.
+![Slice Changed](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/slice_changes.png?raw=true)
         - When there’s no available capacity in the underlying array for a slice, the append function will create a new underlying array, copy the existing values that are being referenced, and assign the new value  
             ```
             func main() {
@@ -113,6 +119,7 @@ assigned the value. Since the original slice is sharing the underlying array, sl
             [10 20 30 40]
             [10 20 30 40 60]
             ```
+            ![Slice not Changed](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/slice_not_changed.png?raw=true)
         - By having the option to set the capacity of a new slice to be the same as the length,
 you can force the first append operation to detach the new slice from the underlying
 array. Detaching the new slice from its original source array makes it safe to change.
@@ -163,6 +170,7 @@ called range that you use in conjunction with the keyword for to iterate over sl
             ```
         - The first value
 is the index position and the second value is a copy of the value in that index position. It’s important to know that range is making a copy of the value, not returning a reference
+![range loop](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/range_value_copy.png?raw=true)
         - If you don’t need the index value, you can use the underscore character to discard
 the value.
             ```
@@ -202,4 +210,5 @@ underlying array
                 return slice
             }
             ```
+            ![Slice passing to func](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/slice_pass_func.png?raw=true)
         - On a 64-bit architecture, a slice requires 24 bytes of memory while passing to functions.
