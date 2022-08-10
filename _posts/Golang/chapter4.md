@@ -65,7 +65,7 @@ by declaring a slice without any initialization.
 ![Nil Slice ](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/nil_slice.png?raw=true)
         - Declaring an empty slice  
             `slice := make([]int, 0)`  
-            `slice := []int{}`
+            `slice := []int{}`  
 ![empty Slice](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/empty_slice.png?raw=true)
         - NIL useful when you want to represent a slice that doesn’t exist, such as when an exception
 occurs in a function that returns a slice.
