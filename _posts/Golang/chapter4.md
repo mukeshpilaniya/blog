@@ -51,6 +51,10 @@ option you have is to specify the length of the slice.
             Contains a length of 3 and has a capacity of 5 elements. Trying to create a slice with a capacity that’s smaller than the length is not allowed
         - Declaring a slice with a slice literal  
             `slice := []string{"Red", "Blue", "Green", "Yellow", "Pink"}`
+        - Multidimensional slices  
+            `slice := [][]int{{10}, {100, 200}, {4, 6, 7, 4}}`  
+            Append the value of 20 to the first slice of integers.   
+slice[0] = append(slice[0], 20)
     - NIL and empty slices
         - Declaring an nil slice.  
             `var slice []int`  
@@ -183,3 +187,19 @@ need more control iterating over a slice, you can always use a traditional for l
                 fmt.Printf("Index: %d Value: %d\n", index, slice[index])
             }
             ```
+    - Passing slices between functions
+        - Passing a slice between two functions requires nothing more than passing the slice by value.Since the size of a slice(address, Length, Capacity) is small, it’s cheap to copy and pass between functions.
+        - The data associated with a slice is contained in the underlying array, there are no problems passing a copy of a slice to any function. Only the slice is being copied, not the
+underlying array 
+            ```
+            slice := make([]int, 1e6)
+            // Pass the slice to the function foo.
+            slice = foo(slice)
+            
+            // Function foo accepts a slice of integers and returns the slice back.
+            func foo(slice []int) []int {
+                //code logic 
+                return slice
+            }
+            ```
+        - On a 64-bit architecture, a slice requires 24 bytes of memory while passing to functions.
