@@ -315,4 +315,18 @@ reflected by all references to the map.
             map[10:1 30:3 40:4 50:5]
             ```
         
-4. 
+4. Summary
+    - Arrays are the building blocks for both slices and maps.
+    - Slices are the idiomatic way in Go you work with collections of data. Maps are
+the way you work with key/value pairs of data.
+    - The built-in function make allows you to create slices and maps with initial
+length and capacity. Slice and map literals can be used as well and support setting initial values for use.
+    - Slices have a capacity restriction, but can be extended using the built-in function append.
+    - Maps don’t have a capacity or any restriction on growth.
+    - The built-in function len can be used to retrieve the length of a slice or map.
+    - The built-in function cap only works on slices.
+    - Through the use of composition, you can create multidimensional arrays and
+slices. You can also create maps with values that are slices and other maps. A
+slice can’t be used as a map key.
+    - Passing a slice or map to a function is cheap and doesn’t make a copy of the
+underlying data structure.
