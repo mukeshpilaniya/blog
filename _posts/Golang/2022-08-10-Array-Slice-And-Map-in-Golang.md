@@ -51,10 +51,6 @@ option you have is to specify the length of the slice.
             Contains a length of 3 and has a capacity of 5 elements. Trying to create a slice with a capacity that’s smaller than the length is not allowed
         - Declaring a slice with a slice literal  
             `slice := []string{"Red", "Blue", "Green", "Yellow", "Pink"}`
-        - Multidimensional slices  
-            `slice := [][]int{{10}, {100, 200}, {4, 6, 7, 4}}`  
-            Append the value of 20 to the first slice of integers.   
-slice[0] = append(slice[0], 20)
     - NIL and empty slices
         - Declaring an nil slice.  
             `var slice []int`  
