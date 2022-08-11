@@ -24,8 +24,6 @@ elements
             `array := [5]int{1: 10, 2: 20}`
         - Declaring two-dimensional arrays  
             `var array [4][2]int`
-        - Using an array literal to declare and initialize a two dimensional integer array  
-            `array := [4][2]int{{10, 11}, {20, 21}, {30, 31}, {40, 41}}`
     - Passing arrays between functions
         - Passing an array between functions can be an expensive operation in terms of memory and performance. 
         - When your variable is an array, this means the entire array, regardless
@@ -53,10 +51,6 @@ option you have is to specify the length of the slice.
             Contains a length of 3 and has a capacity of 5 elements. Trying to create a slice with a capacity that’s smaller than the length is not allowed
         - Declaring a slice with a slice literal  
             `slice := []string{"Red", "Blue", "Green", "Yellow", "Pink"}`
-        - Multidimensional slices  
-            `slice := [][]int{{10}, {100, 200}, {4, 6, 7, 4}}`  
-            Append the value of 20 to the first slice of integers.   
-slice[0] = append(slice[0], 20)
     - NIL and empty slices
         - Declaring an nil slice.  
             `var slice []int`  
@@ -89,7 +83,7 @@ seen by the other slice.
             Capacity: k - i or 4 - 2 = 2
         - To use append, you need a source slice and a value that is to be appended. When
 your append call returns, it provides you a new slice with the changes.The append function will always increase the length of the new slice. 
-            ```
+            ```go
             func main() {
                 slice := []int{10,20,30,40,50}
                 newSlice := slice[1:3]
@@ -109,7 +103,7 @@ append operation incorporated the available element into the slice’s length an
 assigned the value. Since the original slice is sharing the underlying array, slice also changed.
 ![Slice Changed](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/slice_changes.png?raw=true)
         - When there’s no available capacity in the underlying array for a slice, the append function will create a new underlying array, copy the existing values that are being referenced, and assign the new value  
-            ```
+            ```go
             func main() {
                 slice := []int{10,20,30,40}
                 newSlice :=append(slice,60)
@@ -124,7 +118,7 @@ assigned the value. Since the original slice is sharing the underlying array, sl
 you can force the first append operation to detach the new slice from the underlying
 array. Detaching the new slice from its original source array makes it safe to change.
             - newSlice len=1 and capacity=2
-                ```
+                ```go
                 func main() {
                     slice := []string{"Apple", "Orange", "Plum", "Banana", "Grape"}
                     newSlice :=slice[2:3:4]
@@ -140,7 +134,7 @@ array. Detaching the new slice from its original source array makes it safe to c
                 [Plum mango]
                 ```
             - newSlice len=1 and capacity=1
-                ```
+                ```go
                 func main() {
                     slice := []string{"Apple", "Orange", "Plum", "Banana", "Grape"}
                     newSlice :=slice[2:3:3]
@@ -158,7 +152,7 @@ array. Detaching the new slice from its original source array makes it safe to c
     - Iterating over slices
         - Go has a special keyword
 called range that you use in conjunction with the keyword for to iterate over slices.
-            ```
+            ```go
             //Create a slice of integers.
             // Contains a length and capacity of 4 elements.
             slice := []int{10, 20, 30, 40}
@@ -173,7 +167,7 @@ is the index position and the second value is a copy of the value in that index 
 ![range loop](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/range_value_copy.png?raw=true)
         - If you don’t need the index value, you can use the underscore character to discard
 the value.
-            ```
+            ```go
             // Create a slice of integers.
             // Contains a length and capacity of 4 elements.
             slice := []int{10, 20, 30, 40}
@@ -185,7 +179,7 @@ the value.
             ```
         - The keyword range will always start iterating over a slice from the beginning. If you
 need more control iterating over a slice, you can always use a traditional for loop.
-            ```
+            ```go
             // Create a slice of integers.
             // Contains a length and capacity of 4 elements.
             slice := []int{10, 20, 30, 40}
@@ -199,7 +193,7 @@ need more control iterating over a slice, you can always use a traditional for l
         - Passing a slice between two functions requires nothing more than passing the slice by value.Since the size of a slice(address, Length, Capacity) is small, it’s cheap to copy and pass between functions.
         - The data associated with a slice is contained in the underlying array, there are no problems passing a copy of a slice to any function. Only the slice is being copied, not the
 underlying array 
-            ```
+            ```go
             slice := make([]int, 1e6)
             // Pass the slice to the function foo.
             slice = foo(slice)
@@ -216,3 +210,109 @@ requires 8 bytes, and the length and capacity fields require 8 bytes respectivel
 3. Map
     - Map internals and fundamentals
         - A map is a data structure that provides you with an unordered collection of key/value pairs.
+        - The strength of a map is its ability to
+retrieve data quickly based on the key. A key works like an index, pointing to the value
+you associate with that key.
+        - Maps are unordered collections, and there’s no way to predict the order in
+which the key/value pairs will be returned, this is
+because a map is implemented using a hash table.
+    - Creating and Initializing
+        -  You can use the builtin function make, or you can use a map literal.
+        - Declaring a map  
+            `var mp map[string]int`
+        - Declaring and Initializing a map using make  
+            `mp := make(map[string]int)`
+        - Delcaring and Initializing a map using literal  
+            `mp := map[string]string{"Red": "#da1337", "Orange": "#e95a22"}`
+        -  Slices, functions, and struct types that
+contain slices can’t be used as map keys.   
+            `dict := map[[]string]int{}` // compiler error
+        - There’s nothing stopping you from using a slice as a map value.  
+            `dict := map[int][]string{}`
+    - Working with maps
+        - Assiging values to a map
+            ```go
+            // Create an empty map to store colors and their color codes.
+            colors := map[string]string{}
+            
+            // Add the Red color code to the map.
+            colors["Red"] = "#da1337"
+            ```
+        - Runtime error assigned to a nil map
+            ```go
+            // Create a nil map by just declaring the map.
+            var colors map[string]string
+            
+            // Add the Red color code to the map.
+            colors["Red"] = "#da1337"
+            
+            Runtime Error:
+            panic: runtime error: assignment to entry in nil map
+            ```
+        - Retrieving a value from a map and testing existence.
+            ```go
+            // Retrieve the value for the key "Blue".
+            value, exists := colors["Blue"]
+            
+            // Did this key exist?
+            if exists {
+                fmt.Println(value)
+            }
+            ```
+        - **Wrong way of checking existence of Key**
+            ```go
+            // Retrieve the value for the key "Blue".
+            value := colors["Blue"]
+            
+            // Did this key exist?
+            if value != "" {
+                fmt.Println(value)
+            }
+            ```
+            When you index a map in Go, it will always return a value, even when the key doesn’t
+exist. In this case, the zero value for the value’s type is returned.
+        - Iterating over a map using for range
+            ```go
+            // Create a map of colors and color hex codes.
+                colors := map[string]string{
+                "AliceBlue": "#f0f8ff",
+                "Coral": "#ff7F50",
+                "DarkGray": "#a9a9a9",
+                "ForestGreen": "#228b22",
+            }
+            // Display all the colors in the map.
+            for key, value := range colors {
+                fmt.Printf("Key: %s Value: %s\n", key, value)
+            }
+            ```
+        - Removing an item from a map  
+            `delete(colors, "Coral")`
+    - Passing maps between functions
+        - Passing a map between two functions doesn’t make a copy of the map. 
+        - you can
+pass a map to a function and make changes to the map, and the changes will be
+reflected by all references to the map.
+            ```go
+            func main() {
+                mp :=map[int]int{
+                    10:1,
+                    20:2,
+                    30:3,
+                    40:4,
+                    50:5,
+                }
+                fmt.Println(mp)
+                removeKey(mp,20)
+                fmt.Println(mp)
+            }
+
+            func removeKey(mp map[int]int, key int){
+                delete(mp,key)
+            }
+
+            output:-
+            map[10:1 20:2 30:3 40:4 50:5]
+            map[10:1 30:3 40:4 50:5]
+            ```
+        
+4. 
