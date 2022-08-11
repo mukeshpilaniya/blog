@@ -24,8 +24,6 @@ elements
             `array := [5]int{1: 10, 2: 20}`
         - Declaring two-dimensional arrays  
             `var array [4][2]int`
-        - Using an array literal to declare and initialize a two dimensional integer array  
-            `array := [4][2]int{ {10,11},{20,21},{30,31},{40,41}}`
     - Passing arrays between functions
         - Passing an array between functions can be an expensive operation in terms of memory and performance. 
         - When your variable is an array, this means the entire array, regardless
