@@ -215,4 +215,7 @@ underlying array
 requires 8 bytes, and the length and capacity fields require 8 bytes respectively
 3. Map
     - Map internals and fundamentals
-        - A map is a data structure that provides you with an unordered collection of key/value pairs.  
+        - A map is a data structure that provides you with an unordered collection of key/value pairs.
+        - The strength of a map is its ability to
+retrieve data quickly based on the key. A key works like an index, pointing to the value
+you associate with that key.
