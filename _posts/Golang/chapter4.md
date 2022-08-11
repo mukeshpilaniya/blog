@@ -218,7 +218,7 @@ which the key/value pairs will be returned, this is
 because a map is implemented using a hash table.
     - Creating and Initializing
         -  You can use the builtin function make, or you can use a map literal.
-        - Declaring a map  
+        - Declaring a nil map  
             `var mp map[string]int`
         - Declaring and Initializing a map using make  
             `mp := make(map[string]int)`
