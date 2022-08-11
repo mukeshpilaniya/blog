@@ -229,3 +229,104 @@ contain slices can’t be used as map keys.
             `dict := map[[]string]int{}` // compiler error
         - There’s nothing stopping you from using a slice as a map value.  
             `dict := map[int][]string{}`
+    - Working with maps
+        - Assiging values to a map
+            ```go
+            // Create an empty map to store colors and their color codes.
+            colors := map[string]string{}
+            
+            // Add the Red color code to the map.
+            colors["Red"] = "#da1337"
+            ```
+        - Runtime error assigned to a nil map
+            ```go
+            // Create a nil map by just declaring the map.
+            var colors map[string]string
+            
+            // Add the Red color code to the map.
+            colors["Red"] = "#da1337"
+            
+            Runtime Error:
+            panic: runtime error: assignment to entry in nil map
+            ```
+        - Retrieving a value from a map and testing existence.
+            ```go
+            // Retrieve the value for the key "Blue".
+            value, exists := colors["Blue"]
+            
+            // Did this key exist?
+            if exists {
+                fmt.Println(value)
+            }
+            ```
+        - **Wrong way of checking existence of Key**
+            ```go
+            // Retrieve the value for the key "Blue".
+            value := colors["Blue"]
+            
+            // Did this key exist?
+            if value != "" {
+                fmt.Println(value)
+            }
+            ```
+            When you index a map in Go, it will always return a value, even when the key doesn’t
+exist. In this case, the zero value for the value’s type is returned.
+        - Iterating over a map using for range
+            ```go
+            // Create a map of colors and color hex codes.
+                colors := map[string]string{
+                "AliceBlue": "#f0f8ff",
+                "Coral": "#ff7F50",
+                "DarkGray": "#a9a9a9",
+                "ForestGreen": "#228b22",
+            }
+            // Display all the colors in the map.
+            for key, value := range colors {
+                fmt.Printf("Key: %s Value: %s\n", key, value)
+            }
+            ```
+        - Removing an item from a map  
+            `delete(colors, "Coral")`
+    - Passing maps between functions
+        - Passing a map between two functions doesn’t make a copy of the map. 
+        - you can
+pass a map to a function and make changes to the map, and the changes will be
+reflected by all references to the map.
+            ```go
+            func main() {
+                mp :=map[int]int{
+                    10:1,
+                    20:2,
+                    30:3,
+                    40:4,
+                    50:5,
+                }
+                fmt.Println(mp)
+                removeKey(mp,20)
+                fmt.Println(mp)
+            }
+
+            func removeKey(mp map[int]int, key int){
+                delete(mp,key)
+            }
+
+            output:-
+            map[10:1 20:2 30:3 40:4 50:5]
+            map[10:1 30:3 40:4 50:5]
+            ```
+        
+4. Summary
+    - Arrays are the building blocks for both slices and maps.
+    - Slices are the idiomatic way in Go you work with collections of data. Maps are
+the way you work with key/value pairs of data.
+    - The built-in function make allows you to create slices and maps with initial
+length and capacity. Slice and map literals can be used as well and support setting initial values for use.
+    - Slices have a capacity restriction, but can be extended using the built-in function append.
+    - Maps don’t have a capacity or any restriction on growth.
+    - The built-in function len can be used to retrieve the length of a slice or map.
+    - The built-in function cap only works on slices.
+    - Through the use of composition, you can create multidimensional arrays and
+slices. You can also create maps with values that are slices and other maps. A
+slice can’t be used as a map key.
+    - Passing a slice or map to a function is cheap and doesn’t make a copy of the
+underlying data structure.
