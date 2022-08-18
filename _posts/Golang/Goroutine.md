@@ -31,7 +31,7 @@
    2. Thread Pool
       - only faster goroutine creation
       - but still memory consumption, performance and no infinite stacks issue
-   3. M:N Threading
+   3. M:N Threading Shared Run Queue
       - M represents number of OS Thread
       - N represents number of goroutine
       - creation of goroutine is cheap and we can fully control complete lifecycle of goroutine beacuse it's creation in user space.
@@ -49,7 +49,7 @@
         - parallel executions of goroutines4
         - There is problem with golbal mutex due to it's not going to be scale.
         - not scalable
-    4. Distributed Scheduler
+    4. Distributed Run Queue Scheduler
        -  
        - Poll Order
          - what is the next goroutine to run
@@ -74,9 +74,18 @@
           - Parallel
           - Scalable
           - efficient
-
+https://www.youtube.com/watch?v=YHRO5WQGh0k
+https://github.com/sourcegraph/gophercon-2018-liveblog/issues/7
+https://kavyajoshi.me/
 4. Fairness 
 
 
+
+
+
+
+### medium Block
+### Kavya youtube channel
+### Go in action Book
 
   
