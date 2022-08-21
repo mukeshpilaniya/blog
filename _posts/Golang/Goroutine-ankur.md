@@ -36,7 +36,7 @@
 | OS schedular is responsible for scheduling process | The kernel thread scheduler is in charge of scheduling kernel threads. | User/Programming Schedular (Golang schedular) is responsible for shceduling user thread/goroutines. |
 
 
-> So it's more efficient to create multiple user thread(goroutine ) inside one process because the process creation is time consuming and resource intensive.
+> So it's more efficient to create multiple user thread(goroutine ) inside one process as compare to the process creation which is time consuming and resource intensive.
 
 ### Go Specific 
 ---
@@ -56,8 +56,12 @@
 
 > Why Go have a schedular ?  
 
-Go uses user level thread known as **goroutine** , which are lighter and cheaper than kernel level thread. for example creation of simple goroutine will take 2KB of stack size and kernel level thread will take 8KB of stack size. Also goroutine has faster creation, destruction and faster context switches than kernel thread So go schedular needs to exits to schedule goroutine, since OS only  knows about kernel thread. Go schedular multiplexes goroutines to kernel level threads, which will run on the differnet CPU core.
+Go uses user level thread known as **goroutine** , which are lighter and cheaper than kernel level thread. for example creation of initial goroutine will take 2KB of stack size and kernel level thread will take 8KB of stack size. Also goroutine has faster creation, destruction and faster context switches than kernel thread So go schedular needs to exits to schedule goroutine.OS can't schedule user level thread, OS only know about kernel level thread. Go schedular multiplexes goroutines to kernel level threads, which will run on the differnet CPU core.
 
-> How go schedular will multiplexes goroutines to kernel threads.
+> When go schedular schedule goroutines ?
+
+If there is any operation that should or would affect goroutine execution like goroutine starting and blocking etc...
+  
+> How go schedular will multiplexes goroutines into kernel threads.
 
 1. Thread per Core
