@@ -130,7 +130,7 @@ the decision of go schedular and it's scheduing decisions of what to run when ha
 > why have a schedular?
 
 
-> When go schedular schedule goroutines ?
+> When to schedule goroutines ?
 
 If there is any operation that should or would affect goroutine execution like goroutine starting and blocking etc...
 
@@ -144,7 +144,7 @@ Blocking system call will block goroutine and underline kernel thread as well
 > How to multilex goroutine onto kernel threads ?
 >> when to create threads ?
 
->> how to distribute goroutines across threads ? 
+>> How to distribute goroutines across threads ? 
  
 
 
