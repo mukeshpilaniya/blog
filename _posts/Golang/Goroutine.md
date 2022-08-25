@@ -108,6 +108,7 @@ https://www.morsmachine.dk/go-scheduler
 https://www.sobyte.net/post/2022-04/go-scheduling/
 http://lroolle.com/notes/scheduling-in-go/
 https://medium.com/@ankur_anand/illustrated-tales-of-go-runtime-scheduler-74809ef6d19b
+https://dave.cheney.net/2013/06/02/why-is-a-goroutines-stack-infinite
 ```go
 func main(){
    // create go routine
@@ -154,3 +155,7 @@ Blocking system call will block goroutine and underline kernel thread as well
    - FIFO runqueues -> no notion of goroutine priorities (unlike linux kernel)
    - No strong preemption -> no strong fairness or latency guarantees. 
    - Is not aware of the system topology -> no real locality. There is an old NUMA-aware scheduler proposal. Also a suggestion to use LIFO queue so its more likely to have data in that CPU cores cache.
+
+
+
+### Logocal Processor -P
