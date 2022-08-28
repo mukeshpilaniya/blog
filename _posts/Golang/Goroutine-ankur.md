@@ -37,7 +37,7 @@ space, handles to files, devices, and threads.
 | Context switching time between processes is more and creating a process will take more time. | Context switching time between kernel level thread will take less time than context switching between process also creation of kernel level thread also take less time than creation of a process. | User level thread is having less context switching time and creation of user level thread will take less time than kernel level thread. |
 | OS schedular is responsible for scheduling process | The kernel thread scheduler is in charge of scheduling kernel threads. | User/Programming Schedular (Golang schedular) is responsible for shceduling user thread/goroutines. |
 
-![Process_vs_Thread](./images/process_vs_thread.png)
+![Process_vs_Thread](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/process_vs_thread.png?raw=true)
 > So it's more efficient to create multiple user thread(goroutine ) inside one process as compare to the process creation which is time consuming and resource intensive.
 
 ---
