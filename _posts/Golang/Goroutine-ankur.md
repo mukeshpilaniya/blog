@@ -399,7 +399,7 @@ If there is any operation that should or would affect goroutine execution like g
    To solve the sclable problem where every thread is try to access the mutex at the same time, per thread local run queue is maintained. 
     - Per thread state (local run queue)
     - Still have global run queue  
-    ![Distributed Run Queue](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/distributed_queue.gif?raw=true)
+  ![Distributed Run Queue](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/distributed_queue.gif?raw=true)
     
    > What is the next goroutine to run ?  
   
@@ -418,7 +418,7 @@ If there is any operation that should or would affect goroutine execution like g
 
    > If number of thread is more than number of cores than what is the problem ?  
 
-     In distributed run queue schedular we know that each thread is having their own local run queue which contains information about which goroutine going to be execute next. So if the number of threads are greater than number of cores than during the **work stealing** process each thread has to scan all the thread local run queue so if threads are more than thid process is time consuming and the solution is not efficent so we need to limit thread scanning to a constant which is solve using M:P:N threading model.
+     In distributed run queue schedular we know that each thread is having their own local run queue which contains information about which goroutine going to be execute next.Also due to syscall, number of thread will increase and most of time their local run queue is empty. So if the number of threads are greater than number of cores than during the **work stealing** process each thread has to scan all the thread local run queue and most of time they are empty so if threads are more than this process is time consuming and the solution is not efficent so we need to limit thread scanning to a constant which is solve using M:P:N threading model.
 
 6. M:P:N Threading  
    - P represented Processor that are resource required to run the go code.
@@ -426,7 +426,8 @@ If there is any operation that should or would affect goroutine execution like g
    - Processor are created before starting of the main go routine. 
    - During the work stealing only fixed number number of queue has to be scan because number of logical processors are limited.
    - `work stealing`
-   - `photo`  
+   - `M:P:N photo`  
+   - `M:P:N Syscall`
    - Conclusion
      - [x] lightweight goroutines
      - [x] handling of IO and System calls
