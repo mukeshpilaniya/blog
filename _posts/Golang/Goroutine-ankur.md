@@ -352,7 +352,7 @@ If there is any operation that should or would affect goroutine execution like g
     }
    ```
 
-    ![Goroutiine Block On Channel](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/shared_queue_channel.gif?raw=true)
+    ![Goroutiine Block On Channel](./images/shared_schedular_during_channel_operations.gif)
    - The same mechanism is used for Mutexes, Timers and Network IO.
    - If a goroutine is blocked on the system call then the situation is differnt because we don't know what is happing in the kernel space. Channels are created in the user space so we have full control over it but in the case of system call we don't have.
    - Blocking system call will block goroutine and underline kernel thread as well.
@@ -381,7 +381,8 @@ If there is any operation that should or would affect goroutine execution like g
       RET
     ```
    - When the system call is made to the kernel then it has two decideding points, one is entry point and another one is exit point.
-    ![Goroutine Blocked on SysCall](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/shared_queue_syscall.gif?raw=true)
+
+    ![Goroutine Blocked on SysCall](./images/shared_schedular_during_system_call_operations.gif)
 
    > **How many kernel thread OS can supports ?**
 
@@ -401,7 +402,7 @@ If there is any operation that should or would affect goroutine execution like g
     - Per thread state (local run queue)
     - Still have global run queue 
 
-   ![Distributed Run Queue](https://github.com/mukeshpilaniya/blog/blob/master/_posts/Golang/images/distributed_queue.gif?raw=true)
+   ![Distributed Run Queue](./images/distributed_schedular.gif)
     - Local queue of runnable goroutines, accessed without lock.
     - Global queue of runnable goroutines, require lock.
 
