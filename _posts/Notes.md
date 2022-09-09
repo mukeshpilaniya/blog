@@ -105,8 +105,10 @@
 
 
 ### Goals
-- Coding (500 questions)
-- Golang/ Testing/ Bechmarking:q!
+- Coding 500 questions (Amazon)
+- Golang Schedular
+- Golang Testing
+- Golang Benchmarking 
 - System Design (10 design question)
 - Open Source Projects
     - https://github.com/SigNoz
@@ -114,7 +116,3 @@
     - Saas based projects
     - Monitoring 
 - Kubernetics learn
-
-
-## Go in Action
-- 
