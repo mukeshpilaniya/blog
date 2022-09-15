@@ -88,6 +88,11 @@
 
 ### Goals of 2022
 - [] Coding 500 questions (Amazon)
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+
 - [] Golang Schedular
 - [] Golang Testing
 - [] Golang Benchmarking 
