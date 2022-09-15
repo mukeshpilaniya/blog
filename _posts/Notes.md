@@ -17,19 +17,6 @@
 5. Tell me the hardest bug you had to deal with and how you solved it and what impact it had?
 6. Tell me a time you got really stuck and had a remove a serious block and what result it had?
 
-## kafka 
-
-
-
-
-
-
-
-
-## java/ Oops
-
-
-
 ## Amazone 
     5 stages
 - 1 online assisments
@@ -58,7 +45,7 @@
     - amazone previous question(gfg, refacyoring guru)
 
 
-## Golang interview questions
+## Golang Interview questions
 - channel
 - goroutine
 - goroutine vs thread
@@ -99,20 +86,19 @@
 - Loadbalancing 
 
 
-
-### System Design
-- CarRental System
-
-
-### Goals
-- Coding 500 questions (Amazon)
-- Golang Schedular
-- Golang Testing
-- Golang Benchmarking 
-- System Design (10 design question)
-- Open Source Projects
+### Goals of 2022
+- [] Coding 500 questions (Amazon)
+- [] Golang Schedular
+- [] Golang Testing
+- [] Golang Benchmarking 
+- [] Golang Channels
+- [] Golang Concurrency
+- [] Design Patterns
+- [] Solid Principles
+- [] System Design (10 design question)
+- [] Open Source Projects
     - https://github.com/SigNoz
 - Self Projects
-    - Saas based projects
-    - Monitoring 
-- Kubernetics learn
+    - [] Saas based projects
+    - [] Monitoring 
+- [] Kubernetics learn
